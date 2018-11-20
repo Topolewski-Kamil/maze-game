@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="2DGameWithLibraryRoot/2DGame/src"/>
+	<classpathentry kind="lib" path="res1"/>
 	<classpathentry kind="output" path="2DGameWithLibraryRoot/2DGame/out/production/2DGame"/>
 </classpath>
