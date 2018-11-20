@@ -1,5 +1,7 @@
 import java.awt.image.BufferedImage;
 
+//checking if it works
+
 //creating another class for it just to render it once
 public class Assets {
 
