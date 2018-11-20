@@ -4,6 +4,8 @@ public abstract class Creature extends Entity { //using methods from Entity
     public static final float DEFAULT_SPEED = 4.0f;
     public static final int DEFAULT_CREATURE_WIDTH  = 50,
     DEFAULT_CREATURE_HEIGHT = 60;
+    
+    public World w1;
 
     protected int health;
     protected float speed;
@@ -49,11 +51,17 @@ public abstract class Creature extends Entity { //using methods from Entity
     public void moveX(){
         if(xMove > 0){//Moving right
             int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-
-            if(!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+            
+            if(collectedPowerUp (tx - 1, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+                    collectedPowerUp(tx - 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+            	this.setSpeed(8.0f);
+//            	w1.changeTileToGrass(1, 1);
+            	
+            } else if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
                     !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
                 x += xMove;
             }
+            
         }else if(xMove < 0){//Moving left
             int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
 
@@ -67,8 +75,7 @@ public abstract class Creature extends Entity { //using methods from Entity
     public void moveY(){
         if(yMove < 0){//Up
             int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-
-            if(!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
+             if(!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
                     !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
                 y += yMove;
             }
@@ -84,6 +91,10 @@ public abstract class Creature extends Entity { //using methods from Entity
 
     protected boolean collision(int x, int y) {
         return handler.getWorld().getTile(x, y).isSolid();
+    }
+    
+    protected boolean collectedPowerUp(int x, int y) {
+    	return handler.getWorld().getTile(x, y).isPowerUp();
     }
 
     public Creature(Handler handler, float x, float y, int width, int height){ //has to has the same variables as Entity constructor

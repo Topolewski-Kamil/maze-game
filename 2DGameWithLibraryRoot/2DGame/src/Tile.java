@@ -32,6 +32,9 @@ public class Tile {
     public boolean isSolid() {
         return false;
     }
+    public boolean isPowerUp() {
+    	return false;
+    }
 
     public int getId() {
         return id;

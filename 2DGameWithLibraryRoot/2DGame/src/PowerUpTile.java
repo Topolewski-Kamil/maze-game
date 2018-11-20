@@ -9,4 +9,7 @@ public class PowerUpTile extends Tile{
         return true;
 
     }
+    public boolean isSolid() {
+    	return false;
+    }
 }

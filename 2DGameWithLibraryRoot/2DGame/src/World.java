@@ -5,6 +5,7 @@ public class World {
     private int width, height;
     private int spawnX, spawnY;
     private int[][] tiles;
+    private String[] tokens;
 
     public World(Handler handler, String path){
         this.handler = handler;
@@ -36,14 +37,16 @@ public class World {
 
         Tile t = Tile.tiles[tiles[x][y]];
         if (t == null) {
+
             return Tile.grassTile;
+
         }
         return t;
     }
 
     private void loadWorld(String path) {
         String file = Utils.loadFileAsString(path);
-        String[] tokens = file.split("\\s+");
+        tokens = file.split("\\s+");
         width = Utils.parseInt(tokens[0]);
         height = Utils.parseInt(tokens[1]);
         spawnX = Utils.parseInt(tokens[2]);
@@ -63,5 +66,8 @@ public class World {
 
     public int getHeight() {
         return height;
+    }
+    public void changeTileToGrass(int x, int y) {
+    	tiles[x][y] = 1;
     }
 }
