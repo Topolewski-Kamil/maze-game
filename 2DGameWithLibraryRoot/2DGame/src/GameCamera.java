@@ -2,7 +2,7 @@ public class GameCamera {
 
     private Handler handler;
     private float xOffset, yOffset;
-    private int mapSize = 375;
+    private int mapSize = 1010;
 
     public GameCamera(Handler handler, float xOffset, float yOffset) {
         this.handler = handler;

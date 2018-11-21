@@ -17,7 +17,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     private Graphics g; // object g is like brush, it can draw on the canvas
 
     //States
-    private State gameState; //crea ting state object called "gameState"
+    private State gameState; //creating state object called "gameState"
     private State menuState;
 
     //Input

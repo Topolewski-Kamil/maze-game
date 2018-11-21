@@ -2,23 +2,18 @@ import java.awt.Graphics;
 
 public abstract class Creature extends Entity { // using methods from Entity
 
+	public PowerUpEntity p1;
+
 	public static final int DEFAULT_HEALTH = 10;
 	public static final float DEFAULT_SPEED = 4.0f;
 	public static final int DEFAULT_CREATURE_WIDTH = 50, DEFAULT_CREATURE_HEIGHT = 60;
-	
-	
+
 	protected int health;
 	protected float speed;
 	protected float xMove, yMove;
-	public static boolean eaten = false;
 
-	public static boolean isEaten() {
-		return eaten;
-	}
-
-	public void setEaten() {
-		eaten = true;
-	}
+	private static long millis = System.currentTimeMillis() % 1000;
+	private static long currentTime = 10000000;
 
 	public int getHealth() {
 		return health;
@@ -59,13 +54,26 @@ public abstract class Creature extends Entity { // using methods from Entity
 
 	public void moveX() {
 		if (xMove > 0) {// Moving right
+
 			int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 
-			if (collectedPowerUp(tx - 1, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-					&& collectedPowerUp(tx - 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
-				this.setSpeed(8.0f);
-				this.setEaten();
+			if (PowerUpEntity.isEaten() == true) {
+				if (System.currentTimeMillis() - currentTime > 3000) {
+//					PowerUpEntity.setEaten(false);
+					this.setSpeed(4.0f);
+				}
 			}
+
+			if (PowerUpEntity.isEaten() == false) {
+
+				if (collectedPowerUp(tx - 1, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+						&& collectedPowerUp(tx - 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+					this.setSpeed(8.0f);
+					PowerUpEntity.setEaten(true);
+					currentTime = System.currentTimeMillis();
+				}
+			}
+
 			if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
 					&& !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
 				x += xMove;
