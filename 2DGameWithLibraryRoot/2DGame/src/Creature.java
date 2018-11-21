@@ -1,107 +1,117 @@
-public abstract class Creature extends Entity { //using methods from Entity
+import java.awt.Graphics;
 
-    public static final int DEFAULT_HEALTH = 10;
-    public static final float DEFAULT_SPEED = 4.0f;
-    public static final int DEFAULT_CREATURE_WIDTH  = 50,
-    DEFAULT_CREATURE_HEIGHT = 60;
-    
-    public World w1;
+public abstract class Creature extends Entity { // using methods from Entity
 
-    protected int health;
-    protected float speed;
-    protected float xMove, yMove;
+	public static final int DEFAULT_HEALTH = 10;
+	public static final float DEFAULT_SPEED = 4.0f;
+	public static final int DEFAULT_CREATURE_WIDTH = 50, DEFAULT_CREATURE_HEIGHT = 60;
+	
+	
+	protected int health;
+	protected float speed;
+	protected float xMove, yMove;
+	public static boolean eaten = false;
 
-    public int getHealth() {
-        return health;
-    }
+	public static boolean isEaten() {
+		return eaten;
+	}
 
-    public float getxMove() {
-        return xMove;
-    }
+	public void setEaten() {
+		eaten = true;
+	}
 
-    public void setxMove(float xMove) {
-        this.xMove = xMove;
-    }
+	public int getHealth() {
+		return health;
+	}
 
-    public float getyMove() {
-        return yMove;
-    }
+	public float getxMove() {
+		return xMove;
+	}
 
-    public void setyMove(float yMove) {
-        this.yMove = yMove;
-    }
+	public void setxMove(float xMove) {
+		this.xMove = xMove;
+	}
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
+	public float getyMove() {
+		return yMove;
+	}
 
-    public float getSpeed() {
-        return speed;
-    }
+	public void setyMove(float yMove) {
+		this.yMove = yMove;
+	}
 
-    public void setSpeed(float speed) {
-        this.speed = speed;
-    }
+	public void setHealth(int health) {
+		this.health = health;
+	}
 
-    public void move() {
-        moveX();
-        moveY();
-    }
+	public float getSpeed() {
+		return speed;
+	}
 
-    public void moveX(){
-        if(xMove > 0){//Moving right
-            int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-            
-            if(collectedPowerUp (tx - 1, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-                    collectedPowerUp(tx - 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
-            	this.setSpeed(8.0f);
-//            	w1.changeTileToGrass(1, 1);
-            	
-            } else if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-                    !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
-                x += xMove;
-            }
-            
-        }else if(xMove < 0){//Moving left
-            int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
+	public void setSpeed(float speed) {
+		this.speed = speed;
+	}
 
-            if(!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-                    !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){
-                x += xMove;
-            }
-        }
-    }
+	public void move() {
+		moveX();
+		moveY();
+	}
 
-    public void moveY(){
-        if(yMove < 0){//Up
-            int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-             if(!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-                    !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-                y += yMove;
-            }
-        }else if(yMove > 0){//Down
-            int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+	public void moveX() {
+		if (xMove > 0) {// Moving right
+			int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 
-            if(!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-                    !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
-                y += yMove;
-            }
-        }
-    }
+			if (collectedPowerUp(tx - 1, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+					&& collectedPowerUp(tx - 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+				this.setSpeed(8.0f);
+				this.setEaten();
+			}
+			if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+					&& !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+				x += xMove;
+			}
 
-    protected boolean collision(int x, int y) {
-        return handler.getWorld().getTile(x, y).isSolid();
-    }
-    
-    protected boolean collectedPowerUp(int x, int y) {
-    	return handler.getWorld().getTile(x, y).isPowerUp();
-    }
+		} else if (xMove < 0) {// Moving left
+			int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
 
-    public Creature(Handler handler, float x, float y, int width, int height){ //has to has the same variables as Entity constructor
-        super(handler, x, y, width, height); // passes those variables to Entity constructor variables
-        health = DEFAULT_HEALTH;
-        speed = DEFAULT_SPEED;
-        xMove = 0;
-        yMove = 0;
-    }
+			if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+					&& !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+				x += xMove;
+			}
+		}
+	}
+
+	public void moveY() {
+		if (yMove < 0) {// Up
+			int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
+			if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
+					&& !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
+				y += yMove;
+			}
+		} else if (yMove > 0) {// Down
+			int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+
+			if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
+					&& !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
+				y += yMove;
+			}
+		}
+	}
+
+	protected boolean collision(int x, int y) {
+		return handler.getWorld().getTile(x, y).isSolid();
+	}
+
+	protected boolean collectedPowerUp(int x, int y) {
+		return handler.getWorld().getTile(x, y).isPowerUp();
+	}
+
+	public Creature(Handler handler, float x, float y, int width, int height) { // has to has the same variables as
+																				// Entity constructor
+		super(handler, x, y, width, height); // passes those variables to Entity constructor variables
+		health = DEFAULT_HEALTH;
+		speed = DEFAULT_SPEED;
+		xMove = 0;
+		yMove = 0;
+	}
 }

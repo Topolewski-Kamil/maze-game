@@ -4,6 +4,7 @@ public class GameState extends State {
 
     private Player player;
     private World world;
+    private Creature c1;
 
     public GameState( Handler handler ){ // constructor
         super(handler);

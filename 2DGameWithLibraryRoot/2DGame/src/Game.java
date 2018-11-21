@@ -7,6 +7,8 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     private Display display; // initialize an object
     private int width, height; // size of window
     public String title;
+    
+	public Creature c1;
 
     private Thread thread; // thread is like a mini program that runs separately from main program
     private boolean running = false;
@@ -78,7 +80,6 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         if(State.getState() != null){ // if state exists
             State.getState().render(g); // render it
         }
-
         //show graphics
         bs.show();
         g.dispose();
@@ -145,5 +146,9 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public Tile getTile(int x, int y) { // return Tile object       
+            return Tile.grassTile;
+
     }
 }
