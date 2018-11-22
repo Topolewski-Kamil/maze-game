@@ -9,6 +9,7 @@ public class Player extends Creature {
         bounds.y = 5;
         bounds.width = 50;
         bounds.height = 50;
+
     }
 
     public void update(){

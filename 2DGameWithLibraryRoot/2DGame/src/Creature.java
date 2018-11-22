@@ -8,7 +8,7 @@ public abstract class Creature extends Entity { // using methods from Entity
 	
 	
 	protected int health;
-	protected float speed;
+	public float speed;
 	protected float xMove, yMove;
 	public static boolean eaten = false;
 
