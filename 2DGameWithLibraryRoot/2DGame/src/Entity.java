@@ -3,7 +3,8 @@ import java.awt.*;
 public abstract class Entity {
 
     protected Handler handler;
-    protected float x, y;
+    protected static float x;
+	protected static float y;
     protected int width, height;
     protected Rectangle bounds;
 
