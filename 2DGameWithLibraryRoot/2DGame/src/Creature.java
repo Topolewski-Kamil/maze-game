@@ -1,4 +1,3 @@
-import java.awt.Graphics;
 
 public abstract class Creature extends Entity { // using methods from Entity
 
@@ -12,7 +11,6 @@ public abstract class Creature extends Entity { // using methods from Entity
 	protected float speed;
 	protected float xMove, yMove;
 
-	private static long millis = System.currentTimeMillis() % 1000;
 	private static long currentTime = 10000000;
 
 	public int getHealth() {
@@ -59,8 +57,10 @@ public abstract class Creature extends Entity { // using methods from Entity
 
 			if (PowerUpEntity.isEaten() == true) {
 				if (System.currentTimeMillis() - currentTime > 3000) {
-//					PowerUpEntity.setEaten(false);
 					this.setSpeed(4.0f);
+				}
+				if (System.currentTimeMillis() - currentTime > 6000) {
+					PowerUpEntity.setEaten(false);
 				}
 			}
 
@@ -82,6 +82,15 @@ public abstract class Creature extends Entity { // using methods from Entity
 		} else if (xMove < 0) {// Moving left
 			int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
 
+			if (PowerUpEntity.isEaten() == false) {
+
+				if (collectedPowerUp(tx + 1, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+						&& collectedPowerUp(tx + 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+					this.setSpeed(8.0f);
+					PowerUpEntity.setEaten(true);
+					currentTime = System.currentTimeMillis();
+				}
+			}
 			if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
 					&& !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
 				x += xMove;
@@ -90,15 +99,36 @@ public abstract class Creature extends Entity { // using methods from Entity
 	}
 
 	public void moveY() {
+		
 		if (yMove < 0) {// Up
 			int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
+			
+			// power up collision when moving up
+			if (collectedPowerUp((int) (x + bounds.x) / Tile.TILEWIDTH, ty + 1)
+					&& collectedPowerUp((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty + 1)) {
+				this.setSpeed(8.0f);
+				PowerUpEntity.setEaten(true);
+				currentTime = System.currentTimeMillis();
+			}
+			// wall collision when moving up
 			if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
 					&& !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
 				y += yMove;
 			}
 		} else if (yMove > 0) {// Down
 			int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-
+			
+			if (PowerUpEntity.isEaten() == false) {
+				
+				//power up collision when moving down
+				if (collectedPowerUp((int) (x + bounds.x) / Tile.TILEWIDTH, ty - 1)
+						&& collectedPowerUp((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty - 1)) {
+					this.setSpeed(8.0f);
+					PowerUpEntity.setEaten(true);
+					currentTime = System.currentTimeMillis();
+				}
+			}
+			// wall collision when moving down
 			if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
 					&& !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
 				y += yMove;

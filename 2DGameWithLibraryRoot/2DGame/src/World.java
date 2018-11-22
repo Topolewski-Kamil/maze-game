@@ -6,6 +6,7 @@ public class World {
     private int spawnX, spawnY;
     private int[][] tiles;
     private String[] tokens;
+    private static int[] powerUps;
 
     public World(Handler handler, String path){
         this.handler = handler;
@@ -26,6 +27,7 @@ public class World {
             for(int x = xStart;x < xEnd;x++){
                 getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
                         (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
+               
             }
         }
     }
@@ -41,6 +43,7 @@ public class World {
             return Tile.grassTile;
 
         }
+       
         return t;
     }
 
@@ -51,13 +54,27 @@ public class World {
         height = Utils.parseInt(tokens[1]);
         spawnX = Utils.parseInt(tokens[2]);
         spawnY = Utils.parseInt(tokens[3]);
+        int i = 0;
+        powerUps = new int[4];
 
         tiles = new int[width][height];
         for (int y = 0; y < height; y++){
             for (int x = 0; x < width; x++) {
                 tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 4]);
+                if (tiles[x][y] == 2) {
+//                
+                	powerUps[i] = x;  
+                	powerUps[i + 1] = y;
+                	i = i + 2;                	
+                }
+                          
             }
         }
+        System.out.println(powerUps[0]);
+        System.out.println(powerUps[1]);
+        System.out.println(powerUps[2]);  
+        System.out.println(powerUps[3]);  
+
     }
 
     public int getWidth() {
@@ -67,7 +84,7 @@ public class World {
     public int getHeight() {
         return height;
     }
-    public void changeTileToGrass(int x, int y) {
-    	tiles[x][y] = 1;
+    public static int speedUpArray(int i) {
+    	return powerUps[i];
     }
 }

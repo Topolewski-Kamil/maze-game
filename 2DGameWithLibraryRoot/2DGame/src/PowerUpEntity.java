@@ -23,8 +23,10 @@ public class PowerUpEntity extends Entity {
 
 	public void render(Graphics g) {
 		if (PowerUpEntity.isEaten() == true) {
-			g.drawImage(Assets.grass, (int) (260 - handler.getGameCamera().getxOffset()),
-					(int) (68 - handler.getGameCamera().getyOffset()), width, height, null);
+			g.drawImage(Assets.grass, (int) ( ((World.speedUpArray(0))* Tile.TILEWIDTH) - handler.getGameCamera().getxOffset()),
+					(int) ((World.speedUpArray(1) * Tile.TILEHEIGHT) - handler.getGameCamera().getyOffset()), Tile.TILEWIDTH, Tile.TILEHEIGHT, null);
+			g.drawImage(Assets.grass, (int) ( ((World.speedUpArray(2))* Tile.TILEWIDTH) - handler.getGameCamera().getxOffset()),
+					(int) ((World.speedUpArray(3) * Tile.TILEHEIGHT) - handler.getGameCamera().getyOffset()), Tile.TILEWIDTH, Tile.TILEHEIGHT, null);
 		}
 	}
 
