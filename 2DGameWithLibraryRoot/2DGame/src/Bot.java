@@ -29,7 +29,7 @@ public class Bot extends Creature {
         Random r = new Random();
         int k, ok = 1;
         // while (state) {
-        k = r.nextInt(3);
+        k = r.nextInt(4);
             if (k == 0) {
                 int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
                // if (ok == 1) {
@@ -38,7 +38,7 @@ public class Bot extends Creature {
                         yMove = -speed;
                     } else if (collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
                         collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
-                        k = r.nextInt(3) ;
+                        k = r.nextInt(4) ;
                         //ok = 0;
                     }
               //  }
@@ -50,7 +50,7 @@ public class Bot extends Creature {
                             !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) yMove = speed;
                     else if (collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
                             collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)){
-                        k = r.nextInt(3) ;
+                        k = r.nextInt(4) ;
                         //ok = 0;
                     }
                // }
@@ -63,7 +63,7 @@ public class Bot extends Creature {
                 xMove = speed;
             else if (collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
                     collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
-                k = r.nextInt(3);
+                k = r.nextInt(4);
                 //  ok = 0;
             }
             //}
@@ -75,7 +75,7 @@ public class Bot extends Creature {
                         && !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) xMove = -speed;
                 else if (collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
                         && collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-                    k = r.nextInt(3);
+                    k = r.nextInt(4);
 
 
         }
@@ -96,200 +96,3 @@ public class Bot extends Creature {
 
 
 
-
-//
-//if ( handler.getKeyManager().up ) {
-//        //yMove = -speed;
-//        k = r.nextInt(3) + 1;
-//        if (k == 1) {
-//        int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-//        yMove = -speed;
-//        } else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 2) {
-//
-//        int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) yMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 3) {
-//        int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else {
-//        int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = -speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        }
-//        }
-//        if ( handler.getKeyManager().down ){
-//        //yMove = speed;
-//        k = r.nextInt(3) + 1;
-//        if (k == 1) {
-//        int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-//        yMove = -speed;
-//        } else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 2) {
-//
-//        int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) yMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 3) {
-//        int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else {
-//        int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = -speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        }
-//        }
-//        if ( handler.getKeyManager().right ){
-//        //xMove = speed;
-//        k = r.nextInt(3) + 1;
-//        if (k == 1) {
-//        int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-//        yMove = -speed;
-//        } else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 2) {
-//
-//        int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) yMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 3) {
-//        int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else {
-//        int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = -speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        }
-//        }
-//        if ( handler.getKeyManager().left ){
-//        //xMove = -speed;
-//        k = r.nextInt(3) + 1;
-//        if (k == 1) {
-//        int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-//        yMove = -speed;
-//        } else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 2) {
-//
-//        int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-//        while (ok == 1) {
-//        if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-//        !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) yMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else if (k == 3) {
-//        int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        } else {
-//        int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-//        while (ok == 1) {
-//        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-//        !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//        xMove = -speed;
-//        else {
-//        k = r.nextInt(3) + 1;
-//        ok = 0;
-//        }
-//        }
-//        }
