@@ -6,7 +6,8 @@ public class Tile {
     public static Tile[] tiles = new Tile[256];
     public static Tile grassTile = new GrassTile(0);
     public static Tile wallTile = new WallTile(1);
-    public static Tile powerUp = new PowerUpTile(2);
+    public static Tile powerUp = new SpeedUpTile(2);
+    public static Tile eagleTile = new EagleEyeTile(3);
 
 
     protected  BufferedImage texture;
