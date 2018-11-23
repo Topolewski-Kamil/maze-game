@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.security.SecureRandom;
+import java.util.Arrays;
 
 public class World {
     private Handler handler;
@@ -6,6 +8,8 @@ public class World {
     private int spawnX, spawnY;
     private int[][] tiles;
     private String[] tokens;
+    private static int[] speedUpArr;
+    private static int[] eagleEyeArr;
 
     public World(Handler handler, String path){
         this.handler = handler;
@@ -26,6 +30,7 @@ public class World {
             for(int x = xStart;x < xEnd;x++){
                 getTile(x, y).render(g, (int) (x * Tile.TILEWIDTH - handler.getGameCamera().getxOffset()),
                         (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
+               
             }
         }
     }
@@ -41,6 +46,7 @@ public class World {
             return Tile.grassTile;
 
         }
+       
         return t;
     }
 
@@ -51,11 +57,37 @@ public class World {
         height = Utils.parseInt(tokens[1]);
         spawnX = Utils.parseInt(tokens[2]);
         spawnY = Utils.parseInt(tokens[3]);
-
+        
+        speedUpArr = new int[0];
+        eagleEyeArr = new int[0];
+        
         tiles = new int[width][height];
+        SecureRandom randomizer = new SecureRandom();
+        int ranNumber;
+       
         for (int y = 0; y < height; y++){
             for (int x = 0; x < width; x++) {
+            	
                 tiles[x][y] = Utils.parseInt(tokens[(x + y * width) + 4]);
+                if (tiles[x][y] == 0) {
+                	ranNumber = randomizer.nextInt(100);  
+                	if (ranNumber == 1) {
+                		
+                		tiles[x][y] = 2;
+                		
+                		speedUpArr = Arrays.copyOf(speedUpArr, speedUpArr.length + 2);
+                		speedUpArr[speedUpArr.length - 2] = x;
+                		speedUpArr[speedUpArr.length - 1] = y;
+                		
+                	} else if (ranNumber == 2) {
+                		
+                		tiles[x][y] = 3;
+                		eagleEyeArr = Arrays.copyOf(eagleEyeArr, eagleEyeArr.length + 2);
+                		eagleEyeArr[eagleEyeArr.length - 2] = x;
+                		eagleEyeArr[eagleEyeArr.length - 1] = y;
+                		
+                	}
+                }
             }
         }
     }
@@ -67,7 +99,17 @@ public class World {
     public int getHeight() {
         return height;
     }
-    public void changeTileToGrass(int x, int y) {
-    	tiles[x][y] = 1;
+    public static int speedUpArray(int i) {
+    	return speedUpArr[i];
+    }
+    public static int lengthOfSpeedUp() {
+    	return speedUpArr.length;
+    }
+    public static int lengthOfEagleEye() {
+    	return eagleEyeArr.length;
+    }
+    public static int eagleEyeArray(int j) {
+    	return eagleEyeArr[j];
+    	
     }
 }

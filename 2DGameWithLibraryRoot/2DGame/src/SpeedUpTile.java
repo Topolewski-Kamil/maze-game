@@ -1,7 +1,7 @@
-public class PowerUpTile extends Tile{
+public class SpeedUpTile extends Tile{
 
-    public PowerUpTile(int id) {
-        super(Assets.powerUp, id);
+    public SpeedUpTile(int id) {
+        super(Assets.speedUp, id);
     }
 
     public boolean isPowerUp(){
