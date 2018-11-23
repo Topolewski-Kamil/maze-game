@@ -1,5 +1,7 @@
 package creaturesSight;
+
 import main.Handler;
+import powerUps.EagleEyeEntity;
 import powerUps.SpeedUpEntity;
 import world.Tile;
 
@@ -12,21 +14,34 @@ public abstract class Creature extends Entity { // using methods from Entity
 	public static final int DEFAULT_CREATURE_WIDTH = 50, DEFAULT_CREATURE_HEIGHT = 60;
 
 	protected int health;
-	protected float speed;
-	protected float xMove, yMove;
+	protected static float speed;
+	protected static float xMove, yMove;
+	protected static int tx, ty;
 
 	private static long currentTime = 10000000;
 
-	public int getHealth() {
-		return health;
+	public static int getTx() {
+		return tx;
 	}
 
-	public float getxMove() {
+	public static void setTx(int tx) {
+		Creature.tx = tx;
+	}
+
+	public static int getTy() {
+		return ty;
+	}
+
+	public static void setTy(int ty) {
+		Creature.ty = ty;
+	}
+
+	public static float getxMove() {
 		return xMove;
 	}
 
 	public void setxMove(float xMove) {
-		this.xMove = xMove;
+		Creature.xMove = xMove;
 	}
 
 	public float getyMove() {
@@ -34,7 +49,7 @@ public abstract class Creature extends Entity { // using methods from Entity
 	}
 
 	public void setyMove(float yMove) {
-		this.yMove = yMove;
+		Creature.yMove = yMove;
 	}
 
 	public void setHealth(int health) {
@@ -46,7 +61,7 @@ public abstract class Creature extends Entity { // using methods from Entity
 	}
 
 	public void setSpeed(float speed) {
-		this.speed = speed;
+		Creature.speed = speed;
 	}
 
 	public void move() {
@@ -57,46 +72,47 @@ public abstract class Creature extends Entity { // using methods from Entity
 	public void moveX() {
 		if (xMove > 0) {// Moving right
 
-			int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
+			tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 
-			if (SpeedUpEntity.isEaten() == true) {
+			if (SpeedUpEntity.isEaten() == true ) {
 				if (System.currentTimeMillis() - currentTime > 3000) {
 					this.setSpeed(4.0f);
 				}
 				if (System.currentTimeMillis() - currentTime > 6000) {
 					SpeedUpEntity.setEaten(false);
+					EagleEyeEntity.setEaten(false);
 				}
 			}
 
 			if (SpeedUpEntity.isEaten() == false) {
-
-				if (collectedPowerUp(tx - 1, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-						&& collectedPowerUp(tx - 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+				
+				if (checkCoordinatesForPowerUp(tx, y, bounds.y, bounds.height, -1)) {
 					this.setSpeed(6.0f);
 					SpeedUpEntity.setEaten(true);
+					EagleEyeEntity.setEaten(true);
 					currentTime = System.currentTimeMillis();
 				}
 			}
 
-			if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-					&& !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+			if (!returnIsItWall(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+					&& !returnIsItWall(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
 				x += xMove;
 			}
 
 		} else if (xMove < 0) {// Moving left
-			int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
+			tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
 
 			if (SpeedUpEntity.isEaten() == false) {
-
-				if (collectedPowerUp(tx + 1, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-						&& collectedPowerUp(tx + 1, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+				if (checkCoordinatesForPowerUp(tx, y, bounds.y, bounds.height, 1)) {
 					this.setSpeed(6.0f);
 					SpeedUpEntity.setEaten(true);
+					EagleEyeEntity.setEaten(true);
+
 					currentTime = System.currentTimeMillis();
 				}
 			}
-			if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-					&& !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+			if (!returnIsItWall(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+					&& !returnIsItWall(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
 				x += xMove;
 			}
 		}
@@ -105,7 +121,7 @@ public abstract class Creature extends Entity { // using methods from Entity
 	public void moveY() {
 
 		if (yMove < 0) {// Up
-			int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
+			ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
 
 			if (SpeedUpEntity.isEaten() == true) {
 				if (System.currentTimeMillis() - currentTime > 3000) {
@@ -113,51 +129,71 @@ public abstract class Creature extends Entity { // using methods from Entity
 				}
 				if (System.currentTimeMillis() - currentTime > 6000) {
 					SpeedUpEntity.setEaten(false);
+					EagleEyeEntity.setEaten(false);
+
 				}
 			}
 
 			// power up collision when moving up
 			if (SpeedUpEntity.isEaten() == false) {
-				
-				if (collectedPowerUp((int) (x + bounds.x) / Tile.TILEWIDTH, ty + 1)
-						&& collectedPowerUp((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty + 1)) {
+				if (checkCoordinatesForPowerUp(ty, x, bounds.x, bounds.width, 1)) {
 					this.setSpeed(6.0f);
 					SpeedUpEntity.setEaten(true);
+					EagleEyeEntity.setEaten(true);
+
 					currentTime = System.currentTimeMillis();
 				}
 			}
 			// wall collision when moving up
-			if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
-					&& !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
+			if (!returnIsItWall((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
+					&& !returnIsItWall((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
 				y += yMove;
 			}
 		} else if (yMove > 0) {// Down
-			int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+			ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 
 			if (SpeedUpEntity.isEaten() == false) {
 
 				// power up collision when moving down
-				if (collectedPowerUp((int) (x + bounds.x) / Tile.TILEWIDTH, ty - 1)
-						&& collectedPowerUp((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty - 1)) {
+				if (checkCoordinatesForPowerUp(ty, x, bounds.x, bounds.width, -1)) {
 					this.setSpeed(6.0f);
 					SpeedUpEntity.setEaten(true);
+					EagleEyeEntity.setEaten(true);
+
 					currentTime = System.currentTimeMillis();
 				}
 			}
 			// wall collision when moving down
-			if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
-					&& !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
+			if (!returnIsItWall((int) (x + bounds.x) / Tile.TILEWIDTH, ty)
+					&& !returnIsItWall((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
 				y += yMove;
 			}
 		}
 	}
 
-	protected boolean collision(int x, int y) {
+	protected boolean returnIsItWall(int x, int y) {
 		return handler.getWorld().getTile(x, y).isSolid();
 	}
 
-	protected boolean collectedPowerUp(int x, int y) {
+	protected boolean returnIsItPowerUp(int x, int y) {
 		return handler.getWorld().getTile(x, y).isPowerUp();
+	}
+
+	protected boolean checkCoordinatesForPowerUp(int te, float ex, int bounds, int bounds2, int shift) {
+		if (te == ty) {
+			if (returnIsItPowerUp((int) (ex + bounds) / Tile.TILEWIDTH, te + shift)
+					&& returnIsItPowerUp((int) (x + bounds + bounds2) / Tile.TILEWIDTH, te + shift)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if (returnIsItPowerUp(tx + shift, (int) (ex + bounds) / Tile.TILEHEIGHT)
+					&& returnIsItPowerUp(tx + shift, (int) (ex + bounds + bounds2) / Tile.TILEHEIGHT)) {
+				return true;
+			}
+			return false;
+		}
 	}
 
 	public Creature(Handler handler, float x, float y, int width, int height) { // has to has the same variables as

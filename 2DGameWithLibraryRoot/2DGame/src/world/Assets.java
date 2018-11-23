@@ -1,7 +1,7 @@
-package readersLoaders;
+package world;
 import java.awt.image.BufferedImage;
 
-import world.SpriteSheet;
+import readersLoaders.ImageLoader;
 
 //checking if it works
 

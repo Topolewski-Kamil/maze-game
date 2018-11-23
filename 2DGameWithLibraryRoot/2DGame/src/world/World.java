@@ -83,7 +83,7 @@ public class World {
                 		speedUpArr[speedUpArr.length - 2] = x;
                 		speedUpArr[speedUpArr.length - 1] = y;
                 		
-                	} else if (ranNumber == 2) {
+                	} else if (ranNumber == 5) {
                 		
                 		tiles[x][y] = 3;
                 		eagleEyeArr = Arrays.copyOf(eagleEyeArr, eagleEyeArr.length + 2);
@@ -94,6 +94,13 @@ public class World {
                 }
             }
         }
+        for (int i = 0; i < eagleEyeArr.length; i++) {
+        	System.out.println("e: " + eagleEyeArr[i]);	
+        }
+        for (int i = 0; i < speedUpArr.length; i++) {
+        	System.out.println("s: " + speedUpArr[i]);	
+        }
+        
     }
 
     public int getWidth() {
@@ -103,17 +110,21 @@ public class World {
     public int getHeight() {
         return height;
     }
+    
     public static int speedUpArray(int i) {
     	return speedUpArr[i];
     }
+    
     public static int lengthOfSpeedUp() {
     	return speedUpArr.length;
+    }
+    
+    public static int eagleEyeArray(int i) {
+    	return eagleEyeArr[i];
+    	
     }
     public static int lengthOfEagleEye() {
     	return eagleEyeArr.length;
     }
-    public static int eagleEyeArray(int j) {
-    	return eagleEyeArr[j];
-    	
-    }
+   
 }

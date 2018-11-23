@@ -11,7 +11,15 @@ public abstract class Entity {
     protected int width, height;
     protected Rectangle bounds;
 
-    public float getX() {
+    public Rectangle getBounds() {
+		return bounds;
+	}
+
+	public void setBounds(Rectangle bounds) {
+		this.bounds = bounds;
+	}
+
+	public float getX() {
         return x;
     }
 

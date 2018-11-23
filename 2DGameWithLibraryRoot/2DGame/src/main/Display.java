@@ -9,7 +9,7 @@ public class Display {
     //it would not be reachable because its private, but we created public method getCanvas
 
 
-    // vairiables which will describe frame
+    // variables which will describe frame
     private String title;
     private int width, height;
 

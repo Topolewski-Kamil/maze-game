@@ -2,7 +2,7 @@ package creaturesSight;
 import java.awt.*;
 
 import main.Handler;
-import readersLoaders.Assets;
+import world.Assets;
 
 public class Player extends Creature {
 	

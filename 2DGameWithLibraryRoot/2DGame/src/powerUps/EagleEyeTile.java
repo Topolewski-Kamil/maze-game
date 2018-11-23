@@ -1,5 +1,5 @@
 package powerUps;
-import readersLoaders.Assets;
+import world.Assets;
 import world.Tile;
 
 public class EagleEyeTile extends Tile{
@@ -8,11 +8,11 @@ public class EagleEyeTile extends Tile{
         super(Assets.speedUp, id);
     }
 
-//    public boolean isPowerUp(){
-//
-//        return true;
-//
-//    }
+    public boolean isPowerUp(){
+
+        return true;
+
+    }
     public boolean isSolid() {
     	return false;
     }

@@ -3,7 +3,7 @@ import java.awt.Graphics;
 
 import creaturesSight.Entity;
 import main.Handler;
-import readersLoaders.Assets;
+import world.Assets;
 import world.Tile;
 import world.World;
 

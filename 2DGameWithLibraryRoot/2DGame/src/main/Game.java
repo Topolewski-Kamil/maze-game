@@ -3,10 +3,10 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 import creaturesSight.Creature;
-import readersLoaders.Assets;
 import readersLoaders.KeyManager;
 import states.GameState;
 import states.MenuState;
+import world.Assets;
 import world.Tile;
 
 //will hold all base code - start, run, close

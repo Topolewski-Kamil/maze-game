@@ -1,5 +1,5 @@
 package powerUps;
-import readersLoaders.Assets;
+import world.Assets;
 import world.Tile;
 
 public class SpeedUpTile extends Tile{
