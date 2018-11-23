@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Random;
 
-public class Bot extends Creature {
+public class Bot extends CreatureBot {
 
     public Bot(Handler handler, float x, float y) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -10,7 +10,7 @@ public class Bot extends Creature {
         bounds.y = 5;
         bounds.width = 50;
         bounds.height = 50;
-         speed = 10.0f;
+       //  speed = 10.0f;
     }
 
    // boolean state = true;
@@ -30,6 +30,8 @@ public class Bot extends Creature {
         int k, ok = 1;
         // while (state) {
         k = r.nextInt(4);
+
+
             if (k == 0) {
                 int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
                // if (ok == 1) {
@@ -44,7 +46,7 @@ public class Bot extends Creature {
               //  }
             }  if (k == 1) {
 
-                int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+                int ty = (int) ((y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT);
               //  if (ok == 1) {
                     if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
                             !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) yMove = speed;
@@ -84,7 +86,7 @@ public class Bot extends Creature {
 
         public void render (Graphics g){
               //   if (this.isEaten() == true) {
-                g.drawImage(Assets.grass, (int) (260 - handler.getGameCamera().getxOffset()), (int) (68 - handler.getGameCamera().getyOffset()), 60, 60, null);
+            //    g.drawImage(Assets.grass, (int) (260 - handler.getGameCamera().getxOffset()), (int) (68 - handler.getGameCamera().getyOffset()), 60, 60, null);
             //     }
                 g.drawImage(Assets.policeFront, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
             }
