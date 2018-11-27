@@ -40,7 +40,9 @@ public class Tile {
     public boolean isPowerUp() {
     	return false;
     }
-
+    public int whichPowerUp() {
+    	return 0;
+    }
     public int getId() {
         return id;
     }

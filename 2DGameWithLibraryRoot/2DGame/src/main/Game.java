@@ -16,8 +16,6 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     private int width, height; // size of window
     public String title;
     
-	public Creature c1;
-
     private Thread thread; // thread is like a mini program that runs separately from main program
     private boolean running = false;
 
