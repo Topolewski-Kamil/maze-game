@@ -1,3 +1,4 @@
+import javax.swing.plaf.nimbus.State;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -26,7 +27,7 @@ public class MouseInput implements MouseListener {
             if(my >= 250 && my <= 300){
                 //pressed Play button
                 //System.out.println("-You have done: ");
-                State.setState(menuState);
+                //State.setState(menuState);
                  // Game.state = gameState;
             }
         }
