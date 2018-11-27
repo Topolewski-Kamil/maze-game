@@ -1,6 +1,7 @@
 package states;
 import java.awt.*;
 
+import Bot.Bot;
 import creaturesSight.Player;
 import creaturesSight.Sight;
 import main.Handler;
@@ -16,6 +17,7 @@ public class GameState extends State {
 	private SpeedUpEntity e;
 	private Sight s;
 	private EagleEyeEntity eagle;
+	private Bot bot;
 
 	public GameState(Handler handler) { // constructor
 		super(handler);
@@ -25,6 +27,7 @@ public class GameState extends State {
 		e = new SpeedUpEntity(handler, 100, 100);
 		s = new Sight(handler, 100, 100);
 		eagle = new EagleEyeEntity(handler, 100, 100);
+		bot = new Bot(handler, 64, 64);
 		
 	}
 
@@ -34,6 +37,7 @@ public class GameState extends State {
 		player.update();
 		s.update();
 		eagle.update();
+		bot.update();
 
 	}
 
@@ -45,6 +49,7 @@ public class GameState extends State {
 		eagle.render(g);
 		s.render(g);
 		player.render(g);
+		bot.render(g);
 		
 
 	}
