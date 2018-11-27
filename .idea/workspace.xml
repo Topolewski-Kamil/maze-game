@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b73aba4-9774-4ca8-b483-65988b0547ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Assets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Creature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Display.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Entity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/GameCamera.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/GameState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/GrassTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Handler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/ImageLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/KeyManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Launcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/MenuState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/SpriteSheet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/WallTile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/World.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/MenuState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Player.java" afterDir="false" />
-    </list>
+    <list default="true" id="0b73aba4-9774-4ca8-b483-65988b0547ab" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +159,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="57" />
     <option name="y" value="39" />
     <option name="width" value="1944" />
@@ -299,7 +271,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49822065" visible="true" weight="0.28097165" />
