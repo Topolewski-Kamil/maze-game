@@ -1,6 +1,6 @@
 import java.awt.Graphics;
 
-public abstract class CreatureBot extends Entity { // using methods from Entity
+public abstract class CreatureBot extends EntityBot { // using methods from Entity
 
  //   public PowerUpEntity p1;
 
@@ -61,7 +61,8 @@ public abstract class CreatureBot extends Entity { // using methods from Entity
              //   while()
                 x += xMove;
 
-            }
+
+            }else x-=xMove;
 
         } else if (xMove < 0) {// Moving left
             int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
@@ -70,7 +71,7 @@ public abstract class CreatureBot extends Entity { // using methods from Entity
                     && !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
                 x += xMove;
 
-            }
+            }else x-=xMove;
         }
     }
 
@@ -81,7 +82,7 @@ public abstract class CreatureBot extends Entity { // using methods from Entity
                     && !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
                 y += yMove;
 
-            }
+            }else y-=yMove;
         } else if (yMove > 0) {// Down
             int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 
@@ -89,7 +90,7 @@ public abstract class CreatureBot extends Entity { // using methods from Entity
                     && !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
                y += yMove;
 
-            }
+            }else y-=yMove;
         }
     }
 
