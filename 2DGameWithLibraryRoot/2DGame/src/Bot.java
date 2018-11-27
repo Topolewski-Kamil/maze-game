@@ -1,3 +1,8 @@
+import creaturesSight.Creature;
+import main.Handler;
+import world.Assets;
+import world.Tile;
+
 import java.awt.*;
 import java.util.Random;
 

@@ -1,3 +1,5 @@
+import main.Handler;
+
 import java.awt.*;
 
 public abstract class EntityBot {
