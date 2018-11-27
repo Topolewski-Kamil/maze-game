@@ -62,7 +62,7 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
                 x += xMove;
 
 
-            }else x-=xMove;
+            }
 
         } else if (xMove < 0) {// Moving left
             int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
@@ -71,7 +71,7 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
                     && !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
                 x += xMove;
 
-            }else x-=xMove;
+            }
         }
     }
 
@@ -82,7 +82,7 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
                     && !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
                 y += yMove;
 
-            }else y-=yMove;
+            }
         } else if (yMove > 0) {// Down
             int ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 
@@ -90,7 +90,7 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
                     && !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
                y += yMove;
 
-            }else y-=yMove;
+            }
         }
     }
 
@@ -107,7 +107,7 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
         super(handler, x, y, width, height); // passes those variables to Entity constructor variables
         health = DEFAULT_HEALTH;
         speed = DEFAULT_SPEED;
-        xMove = 0;
-        yMove = 0;
+        xMove = 100;
+        yMove = 100;
     }
 }
