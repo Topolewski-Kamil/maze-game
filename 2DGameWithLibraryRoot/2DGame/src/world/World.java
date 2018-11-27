@@ -94,12 +94,12 @@ public class World {
                 }
             }
         }
-        for (int i = 0; i < eagleEyeArr.length; i++) {
-        	System.out.println("e: " + eagleEyeArr[i]);	
-        }
-        for (int i = 0; i < speedUpArr.length; i++) {
-        	System.out.println("s: " + speedUpArr[i]);	
-        }
+//        for (int i = 0; i < eagleEyeArr.length; i++) {
+//        	System.out.println("e: " + eagleEyeArr[i]);	
+//        }
+//        for (int i = 0; i < speedUpArr.length; i++) {
+//        	System.out.println("s: " + speedUpArr[i]);	
+//        }
         
     }
 

@@ -1,6 +1,6 @@
 package creaturesSight;
 
-import main.Handler;
+import main.Handler; 
 import powerUps.EagleEyeEntity;
 import powerUps.SpeedUpEntity;
 import world.Tile;
