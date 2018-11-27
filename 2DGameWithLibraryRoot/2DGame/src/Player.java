@@ -1,7 +1,8 @@
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class Player extends Creature {
-
+    private boolean[] keys;
     public Player(Handler handler, float x, float y) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
@@ -20,6 +21,12 @@ public class Player extends Creature {
     private void getInput() {
         xMove = 0;
         yMove = 0;
+        keys = new boolean[256];
+        /*
+        if( keys[KeyEvent.VK_W] || keys[KeyEvent.VK_UP])
+        {
+            yMove = -speed;
+        } */
 
         if ( handler.getKeyManager().up ){
             yMove = -speed;

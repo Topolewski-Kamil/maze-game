@@ -5,7 +5,7 @@ public class GameState extends State {
     private Player player;
     private World world;
 
-    public GameState( Handler handler ){ // constructor
+    public GameState(Handler handler ){ // constructor
         super(handler);
         world = new World(handler,"res1/maps/map0.txt");
         handler.setWorld(world);
@@ -19,10 +19,9 @@ public class GameState extends State {
 
     //draws things in this state
     public void render(Graphics g){
-
-        world.render(g);
-        player.render(g);
-
-
+        //if(Game.State == Game.gamestate) {
+            world.render(g);
+            player.render(g);
+       // }
     }
 }

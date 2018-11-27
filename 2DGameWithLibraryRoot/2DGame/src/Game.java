@@ -15,11 +15,12 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     private Graphics g; // object g is like brush, it can draw on the canvas
 
     //States
-    private State gameState; //crea ting state object called "gameState"
+    private State gameState; //create thing state object called "gameState"
     private State menuState;
 
     //Input
     private KeyManager keyManager;
+    private MouseManager mouseManager;
 
     //Camera
     private GameCamera gameCamera;
@@ -34,6 +35,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         this.height = height;
         this.title = title;
         keyManager = new KeyManager();
+        mouseManager = new MouseManager();
     }
 
     private void init() { // initializes all the graphics
@@ -49,9 +51,9 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         gameState = new GameState(handler); // set the object to GameState()
         menuState = new MenuState(handler);
 
-        State.setState(gameState); // set the current state to gameState
+        State.setState(menuState);
+        //State.setState(gameState); // set the current state to gameState
     }
-
 
     private void update(){ // updates our game after one game loop
         keyManager.update();
@@ -78,7 +80,6 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         if(State.getState() != null){ // if state exists
             State.getState().render(g); // render it
         }
-
         //show graphics
         bs.show();
         g.dispose();
@@ -105,7 +106,6 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
                 update();
                 render(); // keep ticking & rendering (game loop)
                 delta--;
-
             }
         }
         stop();
@@ -114,6 +114,8 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     public KeyManager getKeyManager() {
         return keyManager;
     }
+
+    public MouseManager getMouseManager() { return mouseManager; }
 
     public GameCamera getGameCamera() {
         return gameCamera;
@@ -126,6 +128,8 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     public int getHeight() {
         return height;
     }
+
+    public State getGameState() { return gameState; }
 
 //    synchronized - when working with thread directly, so when starting or stopping it will not mess up
     public synchronized void start() { // starts thread;
