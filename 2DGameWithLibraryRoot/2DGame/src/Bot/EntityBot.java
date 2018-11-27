@@ -1,3 +1,5 @@
+package Bot;
+
 import main.Handler;
 
 import java.awt.*;

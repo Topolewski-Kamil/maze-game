@@ -1,7 +1,7 @@
+package Bot;
+
 import main.Handler;
 import world.Tile;
-
-import java.awt.Graphics;
 
 public abstract class CreatureBot extends EntityBot { // using methods from Entity
 

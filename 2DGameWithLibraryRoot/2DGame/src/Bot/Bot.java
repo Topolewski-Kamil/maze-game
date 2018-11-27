@@ -1,3 +1,5 @@
+package Bot;
+
 import creaturesSight.Creature;
 import main.Handler;
 import world.Assets;
