@@ -5,7 +5,7 @@ import world.Tile;
 public class EagleEyeTile extends Tile{
 
     public EagleEyeTile(int id) {
-        super(Assets.speedUp, id);
+        super(Assets.eagleEye, id);
     }
 
     public boolean isPowerUp(){
@@ -15,5 +15,10 @@ public class EagleEyeTile extends Tile{
     }
     public boolean isSolid() {
     	return false;
+    }
+    
+
+    public int whichPowerUp() {
+    	return 2;
     }
 }
