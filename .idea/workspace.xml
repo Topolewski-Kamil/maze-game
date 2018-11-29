@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05b41218-73ad-4dec-a6ba-41dc50983afc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Creature.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Creature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Sight.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Sight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/world/World.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -251,7 +247,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543498195000" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543498559630" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -356,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543492331074</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="door kinda works">
+      <created>1543498237039</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543498237039</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -425,7 +428,8 @@
     <MESSAGE value="sweet home alabama" />
     <MESSAGE value="dumb door" />
     <MESSAGE value="door" />
-    <option name="LAST_COMMIT_MESSAGE" value="door" />
+    <MESSAGE value="door kinda works" />
+    <option name="LAST_COMMIT_MESSAGE" value="door kinda works" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Bot/Bot.java">
