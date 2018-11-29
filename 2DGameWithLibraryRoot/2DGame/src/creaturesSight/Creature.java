@@ -73,7 +73,7 @@ public abstract class Creature extends Entity { // using methods from Entity
 	}
 
 
-boolean a=false;
+boolean a=false;//kwedklsa
 
 	public void moveX() {
 		if(returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
