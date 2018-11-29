@@ -3,7 +3,10 @@ package creaturesSight;
 import main.Handler; 
 import powerUps.EagleEyeEntity;
 import powerUps.SpeedUpEntity;
+import world.DoorTile;
 import world.Tile;
+
+import javax.swing.*;
 
 public abstract class Creature extends Entity { // using methods from Entity
 
@@ -94,6 +97,13 @@ public abstract class Creature extends Entity { // using methods from Entity
 				}
 			}
 
+			if (returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+					&& returnIsItDoor(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+				Message.infoBox("You found the door!", "Good Job!");
+
+			}
+
+
 			if (!returnIsItWall(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
 					&& !returnIsItWall(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
 				x += xMove;
@@ -171,9 +181,21 @@ public abstract class Creature extends Entity { // using methods from Entity
 		}
 	}
 
+
+	public static class Message
+	{
+
+		public static void infoBox(String infoMessage, String titleBar)
+		{
+			JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
+
 	protected boolean returnIsItWall(int x, int y) {
 		return handler.getWorld().getTile(x, y).isSolid();
 	}
+
+	protected boolean returnIsItDoor (int x, int y){return handler.getWorld().getTile(x,y).isDoor();}
 
 	protected boolean returnIsItPowerUp(int x, int y) {
 		return handler.getWorld().getTile(x, y).isPowerUp();
