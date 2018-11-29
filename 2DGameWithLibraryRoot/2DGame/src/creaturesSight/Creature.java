@@ -73,16 +73,18 @@ public abstract class Creature extends Entity { // using methods from Entity
 	}
 
 
+
+
 	public void moveX() {
-		if(returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-				&& returnIsItDoor(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-			Message.infoBox("You found the door!", "Good job!");
-
-
 		if (xMove > 0) {// Moving right
 
+//			if(returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+//					&& returnIsItDoor(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
+//				Message.infoBox("You found the door!", "Good job!");
+
 			tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-            gx = (int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH;
+			gx = (int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH;
+
 			// reset the powerUps
 			if (SpeedUpEntity.isEaten() == true || EagleEyeEntity.isEaten() == true) {
 				if (System.currentTimeMillis() - currentTime > 3000) {
@@ -96,20 +98,22 @@ public abstract class Creature extends Entity { // using methods from Entity
 					EagleEyeEntity.setEaten(false);
 				}
 			}
-			//check for powerUps when moving right
-			if (SpeedUpEntity.isEaten() == false) {
+			// check for powerUps when moving right
 
-				if (checkCoordinatesForPowerUp(tx, y, bounds.y, bounds.height, -1)) {
+			if (checkCoordinatesForPowerUp(tx, y, bounds.y, bounds.height, -1)) {
 
-					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 1
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
+				if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 1
+						|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
+					if (SpeedUpEntity.isEaten() == false) {
 						this.setSpeed(6.0f);
 						SpeedUpEntity.setEaten(true);
 						currentTime = System.currentTimeMillis();
 					}
+				}
 
-					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 2
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
+				if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 2
+						|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
+					if (EagleEyeEntity.isEaten() == false) {
 						Sight.setSize(2500);
 						Sight.setPowerX(-250);
 						Sight.setPowerY(-260);
@@ -133,21 +137,24 @@ public abstract class Creature extends Entity { // using methods from Entity
 			if (SpeedUpEntity.isEaten() == false) {
 				if (checkCoordinatesForPowerUp(tx, y, bounds.y, bounds.height, 1)) {
 					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 1
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
+							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
 						this.setSpeed(6.0f);
 						SpeedUpEntity.setEaten(true);
 						currentTime = System.currentTimeMillis();
 					}
 					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 2
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
-						Sight.setSize(2500);
-						Sight.setPowerX(-250);
-						Sight.setPowerY(-260);
-						EagleEyeEntity.setEaten(true);
-						currentTime = System.currentTimeMillis();
+							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
+						if (EagleEyeEntity.isEaten() == false) {
+							Sight.setSize(2500);
+							Sight.setPowerX(-250);
+							Sight.setPowerY(-260);
+							EagleEyeEntity.setEaten(true);
+							currentTime = System.currentTimeMillis();
+						}
 					}
 				}
 			}
+			// check for wall when moving left
 			if (!returnIsItWall(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
 					&& !returnIsItWall(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
 				x += xMove;
@@ -174,18 +181,20 @@ public abstract class Creature extends Entity { // using methods from Entity
 			if (SpeedUpEntity.isEaten() == false) {
 				if (checkCoordinatesForPowerUp(ty, x, bounds.x, bounds.width, 1)) {
 					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 1
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
+							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
 						this.setSpeed(6.0f);
 						SpeedUpEntity.setEaten(true);
 						currentTime = System.currentTimeMillis();
 					}
 					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 2
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
-						Sight.setSize(2500);
-						Sight.setPowerX(-250);
-						Sight.setPowerY(-260);
-						EagleEyeEntity.setEaten(true);
-						currentTime = System.currentTimeMillis();
+							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
+						if (EagleEyeEntity.isEaten() == false) {
+							Sight.setSize(2500);
+							Sight.setPowerX(-250);
+							Sight.setPowerY(-260);
+							EagleEyeEntity.setEaten(true);
+							currentTime = System.currentTimeMillis();
+						}
 					}
 				}
 			}
@@ -202,18 +211,20 @@ public abstract class Creature extends Entity { // using methods from Entity
 				// power up collision when moving down
 				if (checkCoordinatesForPowerUp(ty, x, bounds.x, bounds.width, -1)) {
 					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 1
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
+							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
 						this.setSpeed(6.0f);
 						SpeedUpEntity.setEaten(true);
 						currentTime = System.currentTimeMillis();
 					}
 					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 2
-							|| returnIdOfPowerUp(gx , (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
-						Sight.setSize(2500);
-						Sight.setPowerX(-250);
-						Sight.setPowerY(-260);
-						EagleEyeEntity.setEaten(true);
-						currentTime = System.currentTimeMillis();
+							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
+						if (EagleEyeEntity.isEaten() == false) {
+							Sight.setSize(2500);
+							Sight.setPowerX(-250);
+							Sight.setPowerY(-260);
+							EagleEyeEntity.setEaten(true);
+							currentTime = System.currentTimeMillis();
+						}
 					}
 				}
 			}
@@ -224,6 +235,7 @@ public abstract class Creature extends Entity { // using methods from Entity
 			}
 		}
 	}
+
 
 
 	public static class Message
