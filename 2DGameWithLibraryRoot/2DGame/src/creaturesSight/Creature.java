@@ -3,7 +3,6 @@ package creaturesSight;
 import main.Handler;
 import powerUps.EagleEyeEntity;
 import powerUps.SpeedUpEntity;
-import world.DoorTile;
 import world.Tile;
 
 import javax.swing.*;
@@ -70,17 +69,29 @@ public abstract class Creature extends Entity { // using methods from Entity
 	public void move() {
 		moveX();
 		moveY();
+
 	}
 
 
-
+boolean a=false;
 
 	public void moveX() {
+		if(returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+				&& returnIsItDoor(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
+			while(a==false) {
+				Message.infoBox("You found the door, now go catch the thief and bring it here!", "Good job!");
+				tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
+				ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
+				a=true;
+
+			}
+
+		}
+
+
 		if (xMove > 0) {// Moving right
 
-//			if(returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-//					&& returnIsItDoor(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-//				Message.infoBox("You found the door!", "Good job!");
+
 
 			tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 			gx = (int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH;
@@ -164,6 +175,8 @@ public abstract class Creature extends Entity { // using methods from Entity
 
 	public void moveY() {
 
+
+
 		if (SpeedUpEntity.isEaten() == true) {
 			if (System.currentTimeMillis() - currentTime > 3000) {
 				this.setSpeed(4.0f);
@@ -175,6 +188,7 @@ public abstract class Creature extends Entity { // using methods from Entity
 			}
 		}
 		if (yMove < 0) {// Up
+
 			ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
 
 			// power up collision when moving up

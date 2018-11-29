@@ -108,8 +108,9 @@ public class World {
         locx[0]=0;
         locx[1]=29;
         int a=getRandom(locx);
-        int b=r.nextInt(30);
+        int b=r.nextInt(28)+1;
         tiles[a][b]=4;
+        System.out.println("a:"+a+" b:"+b);
 
 
 //        for (int i = 0; i < eagleEyeArr.length; i++) {

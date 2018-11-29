@@ -30,8 +30,8 @@ public class Sight extends Entity {
 
 	public void render(Graphics g) {
 		
-		 g.drawImage(Assets.hole, (int) (x - 1000 + bounds.x - handler.getGameCamera().getxOffset()) +  powerX ,
-				(int) (y - 1000 + bounds.y - handler.getGameCamera().getyOffset()) + powerY, size, size, null);
+//		 g.drawImage(Assets.hole, (int) (x - 1000 + bounds.x - handler.getGameCamera().getxOffset()) +  powerX ,
+//				(int) (y - 1000 + bounds.y - handler.getGameCamera().getyOffset()) + powerY, size, size, null);
 	}
 
 
