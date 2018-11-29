@@ -16,4 +16,8 @@ public class SpeedUpTile extends Tile{
     public boolean isSolid() {
     	return false;
     }
+    
+    public int whichPowerUp() {
+    	return 1;
+    }
 }

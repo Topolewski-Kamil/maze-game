@@ -29,7 +29,7 @@ public class EagleEyeEntity extends Entity {
 	}
 
 	public void render(Graphics g) {
-		if (SpeedUpEntity.isEaten() == true) {
+		if (EagleEyeEntity.isEaten() == true) {
 			for (int i = 0; i < World.lengthOfEagleEye(); i = i + 2) {
 				g.drawImage(Assets.grass,
 						(int) (((World.eagleEyeArray(i)) * Tile.TILEWIDTH) - handler.getGameCamera().getxOffset()),
