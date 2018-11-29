@@ -73,6 +73,11 @@ public abstract class Creature extends Entity { // using methods from Entity
 	}
 
 	public void moveX() {
+		if(returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+				&& returnIsItDoor(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
+			Message.infoBox("You found the door!", "Good job!");
+
+
 		if (xMove > 0) {// Moving right
 
 			tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
