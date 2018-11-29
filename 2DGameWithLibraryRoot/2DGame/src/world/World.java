@@ -110,15 +110,6 @@ public class World {
         int a=getRandom(locx);
         int b=r.nextInt(28)+1;
         tiles[a][b]=4;
-        System.out.println("a:"+a+" b:"+b);
-
-
-//        for (int i = 0; i < eagleEyeArr.length; i++) {
-//        	System.out.println("e: " + eagleEyeArr[i]);	
-//        }
-//        for (int i = 0; i < speedUpArr.length; i++) {
-//        	System.out.println("s: " + speedUpArr[i]);	
-//        }
         
     }
 

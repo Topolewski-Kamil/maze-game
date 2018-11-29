@@ -57,6 +57,9 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         display.getCanvas().addMouseListener(mouseManager);
         display.getCanvas().addMouseMotionListener(mouseManager);
         //end of: 12:20 PM 11/29/2018
+        
+        display.getFrame().addKeyListener(keyManager);
+
 
         Assets.init();
 
@@ -68,7 +71,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         gameState = new GameState(handler); // set the object to GameState()
         menuState = new MenuState(handler);
 
-        State.setState(menuState); // set the current state to gameState
+        State.setState(gameState); // set the current state to gameState
     }
 
     private void update(){ // updates our game after one game loop
