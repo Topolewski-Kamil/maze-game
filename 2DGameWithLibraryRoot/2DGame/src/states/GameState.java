@@ -43,7 +43,6 @@ public class GameState extends State {
 
 	// draws things in this state
 	public void render(Graphics g) {
-
 		world.render(g);
 		e.render(g);
 		eagle.render(g);

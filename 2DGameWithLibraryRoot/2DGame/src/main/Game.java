@@ -1,8 +1,8 @@
 package main;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-
 import creaturesSight.Creature;
+import input.MouseManager;
 import readersLoaders.KeyManager;
 import states.GameState;
 import states.MenuState;
@@ -23,11 +23,12 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     private Graphics g; // object g is like brush, it can draw on the canvas
 
     //States
-    private State gameState; //creating state object called "gameState"
-    private State menuState;
+    public State gameState; //creating state object called "gameState"
+    public State menuState;
 
     //Input
     private KeyManager keyManager;
+    private MouseManager mouseManager;
 
     //Camera
     private GameCamera gameCamera;
@@ -42,24 +43,34 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         this.height = height;
         this.title = title;
         keyManager = new KeyManager();
+        mouseManager = new MouseManager();
     }
 
     private void init() { // initializes all the graphics
         display = new Display(title, width, height);
+
+        //start of: 12:20 PM 11/29/2018
+        //display.getFrame().addKeyListener(keyManager);
+        display.getFrame().addMouseListener(mouseManager);
+        display.getFrame().addMouseMotionListener(mouseManager);
+        display.getCanvas().addMouseListener(mouseManager);
+        display.getCanvas().addMouseMotionListener(mouseManager);
         display.getFrame().addKeyListener(keyManager);
+        display.getCanvas().addKeyListener(keyManager);
+        //end of: 12:20 PM 11/29/2018
+
         Assets.init();
 
         handler = new Handler(this);
         gameCamera = new GameCamera(handler, 0, 0);
-        handler = new Handler(this);
 
         // create new states
         gameState = new GameState(handler); // set the object to GameState()
         menuState = new MenuState(handler);
 
-        State.setState(gameState); // set the current state to gameState
+        //State.setState(menuState);
+        State.setState(menuState); // set the current state to gameState
     }
-
 
     private void update(){ // updates our game after one game loop
         keyManager.update();
@@ -67,7 +78,9 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         if(State.getState() != null){ //if state exists
             State.getState().update(); // update it
         }
+
     }
+
     private void render(){ // drawing method
         // buffer is a hidden screen which prevent flicking
         bs = display.getCanvas().getBufferStrategy(); // object get display canvas; how many buffers we are going to use
@@ -94,7 +107,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     public void run() {
         init(); // call our display/img etc
 
-        int fps = 50; // how many times a second should it refresh
+        int fps = 60; // how many times a second should it refresh
         double timePerUpload = 1_000_000_000 / fps; // in one second how many times we want to refresh
                                                   // 1 bilion nanosecond = 1 second, because more specific'
         double delta = 0; //
@@ -126,6 +139,10 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         return gameCamera;
     }
 
+    public MouseManager getMouseManager() {
+        return mouseManager;
+    }
+
     public int getWidth() {
         return width;
     }
@@ -155,6 +172,5 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     }
     public Tile getTile(int x, int y) { // return Tile object       
             return Tile.grassTile;
-
     }
 }
