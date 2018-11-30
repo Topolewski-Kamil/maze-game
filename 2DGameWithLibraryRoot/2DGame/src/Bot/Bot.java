@@ -9,137 +9,106 @@ import java.awt.*;
 import java.util.Random;
 
 public class Bot extends CreatureBot {
-    //bot njksd.acklkaXLKAMLXjwhkajdnja
-    public Bot(Handler handler, float x, float y) {
-        super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-        bounds.x = 10;
+	public static void setCount(int count) {
+		Bot.count = count;
+	}
+
+	public static void setK(int k) {
+		Bot.k = k;
+	}
+
+	private static int k = 1;
+	private static int count = 0;
+
+	public Bot(Handler handler, float x, float y) {
+		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
+
+		bounds.x = 10;
         bounds.y = 5;
-        bounds.width = 50;
+        bounds.width = 30;
         bounds.height = 50;
 
-    }
+	}
 
-    // boolean state = true;
+	public void update() {
+		moving();
+		move();
+	}
 
+	public static int getRandom(int[] array) {
 
-    public void update() {
-        getInput();
-        move();
-        //     handler.getGameCamera().centerOnEntity(this);
-    }
+		int r = new Random().nextInt(array.length);
+		return array[r];
+	}
 
-    public static int getRandom(int[] array) {
-        int r = new Random().nextInt(array.length);
-        return array[r];
-    }
+	private void moving() {
+		xMove = 0;
+		yMove = 0;
 
+		int[] numbers = new int[] { 0, 1, 2, 3 };
 
-    private void getInput() {
-        xMove = 0;
-        yMove = 0;
+		// up
+		if (k == 0) {
 
-        //  Random r = new Random();
-        int[] numbers = new int[100];
-        int k;
-// populate the first 20 with the value '1'
-        for (int i = 0; i < 100; ++i) {
-            if (i < 35)
-                numbers[i] = 1;
-            else if (i < 50) numbers[i] = 0;
-            else if (i < 85) numbers[i] = 2;
-            else numbers[i] = 3;
-        }
-        // for (int i = 0; i < 100; ++i) {
-        k=getRandom(numbers);
+			yMove = -speed;
 
-        //  int ix = (int)(r.nextInt(4) * 100);
-        //  int k = numbers[ix];
+			count++;
 
-        // while (System.currentTimeMillis()%1000!=1) {
+			while (count > 20) {
+				k = getRandom(numbers);
+				count = 0;
+			}
 
+		}
+		// down
+		if (k == 1) {
 
+			yMove = speed;
 
-        if (k == 0) {
-//                int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-            // if (ok == 1) {
-//                    if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-            //                          !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {
-            //  yMove = -speed;
+			count++;
 
+			while (count > 20) {
+				k = getRandom(numbers);
+				count = 0;
+			}
 
-            yMove = -speed;
+		}
 
+		//right
+		if (k == 2) {
 
-            //                 int ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-            //          if (collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-            //                            collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty))k = r.nextInt(4);
-            //ok = 0;
+			xMove = speed;
 
-        }
-        if (k == 1) {
-            //   yMove = speed;
+			count++;
 
-            yMove = speed;
+			while (count > 20) {
+				k = getRandom(numbers);
+				count = 0;
+			}
 
+		}
+		//left
+		if (k == 3) {
+			xMove = -speed;
 
-//                int ty = (int) ((y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT);
-            //  if (ok == 1) {
-            //                   if (!collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-            //                         !collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) {yMove = speed; }
-            //                int ty = (int) ((y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT);
+			count++;
 
-            //              if (collision((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-            //                    collision((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty)) k = r.nextInt(4) ;
+			while (count > 20) {
+				k = getRandom(numbers);
+				count = 0;
+			}
 
+		}
+	}
 
-        }
+	public void render(Graphics g) {
+		g.drawImage(Assets.thiefFront, (int) (x - handler.getGameCamera().getxOffset()),
+				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+//		g.setColor(Color.red);
+//		
+//		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+//				(int) (y + bounds.y - handler.getGameCamera().getyOffset()), bounds.width, bounds.height);
+	}
 
-        if (k == 2) {
-//            int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-            //          //if (ok == 1) {
-            //        if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-            //              !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-            //  xMove = speed;
-            xMove = speed;
-            //          int tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-
-            //                if (collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-            //                    collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))k = r.nextInt(4);
-
-
-        }
-        // }
-        if (k == 3) {
-            // xMove = -speed;
-            xMove = -speed;
-            //        int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-
-            //            if (!collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-            //                 && !collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {xMove = -speed; }
-
-            //     int tx = (int) (x + xMove + bounds.x) / Tile.TILEWIDTH;
-
-            //   if (collision(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
-            //         && collision(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) k = r.nextInt(4);
-
-        }
-        //}
-
-
-    }
-
-    public void render (Graphics g){
-        //   if (this.isEaten() == true) {
-        //    g.drawImage(Assets.grass, (int) (260 - handler.getGameCamera().getxOffset()), (int) (68 - handler.getGameCamera().getyOffset()), 60, 60, null);
-        //     }
-        g.drawImage(Assets.policeFront, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-    }
-
-//        g.setColor(Color.red);
-//        g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()), (int) (y + bounds.y - handler.getGameCamera().getyOffset()), bounds.width, bounds.height);
 }
-
-
-
-

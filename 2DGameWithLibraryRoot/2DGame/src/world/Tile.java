@@ -12,6 +12,7 @@ public class Tile {
     public static Tile wallTile = new WallTile(1);
     public static Tile powerUp = new SpeedUpTile(2);
     public static Tile eagleTile = new EagleEyeTile(3);
+    public static Tile doorTile = new DoorTile(4);
 
 
     protected  BufferedImage texture;
@@ -40,6 +41,8 @@ public class Tile {
     public boolean isPowerUp() {
     	return false;
     }
+    public boolean isDoor(){return false;}
+
     public int whichPowerUp() {
     	return 0;
     }

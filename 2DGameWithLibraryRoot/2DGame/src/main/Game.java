@@ -63,6 +63,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
 
         handler = new Handler(this);
         gameCamera = new GameCamera(handler, 0, 0);
+        handler = new Handler(this);
 
         // create new states
         gameState = new GameState(handler); // set the object to GameState()
@@ -72,15 +73,14 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         State.setState(menuState); // set the current state to gameState
     }
 
+
     private void update(){ // updates our game after one game loop
         keyManager.update();
 
         if(State.getState() != null){ //if state exists
             State.getState().update(); // update it
         }
-
     }
-
     private void render(){ // drawing method
         // buffer is a hidden screen which prevent flicking
         bs = display.getCanvas().getBufferStrategy(); // object get display canvas; how many buffers we are going to use
@@ -107,7 +107,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     public void run() {
         init(); // call our display/img etc
 
-        int fps = 60; // how many times a second should it refresh
+        int fps = 50; // how many times a second should it refresh
         double timePerUpload = 1_000_000_000 / fps; // in one second how many times we want to refresh
                                                   // 1 bilion nanosecond = 1 second, because more specific'
         double delta = 0; //
@@ -172,5 +172,6 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     }
     public Tile getTile(int x, int y) { // return Tile object       
             return Tile.grassTile;
+
     }
 }

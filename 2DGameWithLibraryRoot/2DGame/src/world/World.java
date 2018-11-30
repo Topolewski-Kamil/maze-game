@@ -2,6 +2,7 @@ package world;
 import java.awt.*;
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Random;
 
 import main.Handler;
 import readersLoaders.Utils;
@@ -54,6 +55,11 @@ public class World {
         return t;
     }
 
+    public static int getRandom(int[] array) {
+        int r = new Random().nextInt(array.length);
+        return array[r];
+    }
+
     private void loadWorld(String path) {
         String file = Utils.loadFileAsString(path);
         tokens = file.split("\\s+");
@@ -91,15 +97,19 @@ public class World {
                 		eagleEyeArr[eagleEyeArr.length - 1] = y;
                 		
                 	}
+
                 }
             }
+
+
         }
-//        for (int i = 0; i < eagleEyeArr.length; i++) {
-//        	System.out.println("e: " + eagleEyeArr[i]);	
-//        }
-//        for (int i = 0; i < speedUpArr.length; i++) {
-//        	System.out.println("s: " + speedUpArr[i]);	
-//        }
+        Random r=new Random();
+        int[] locx= new int[2];
+        locx[0]=0;
+        locx[1]=29;
+        int a=getRandom(locx);
+        int b=r.nextInt(28)+1;
+        tiles[a][b]=4;
         
     }
 

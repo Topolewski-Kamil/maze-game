@@ -46,9 +46,10 @@ public class GameState extends State {
 		world.render(g);
 		e.render(g);
 		eagle.render(g);
+		bot.render(g);
 		s.render(g);
 		player.render(g);
-		bot.render(g);
+
 		
 
 	}
