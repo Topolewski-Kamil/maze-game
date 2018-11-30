@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05b41218-73ad-4dec-a6ba-41dc50983afc" name="Default Changelist" comment="creating bot package">
+    <list default="true" id="05b41218-73ad-4dec-a6ba-41dc50983afc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/input/MouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/input/MouseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/MouseInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/states/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/states/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/states/MenuState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/ui/ClickListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/ui/UIImageButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/ui/UIManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/ui/UIObject.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/out/production/2DGame/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,11 +63,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="1036" />
+          <entry key="txt" value="151" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1036" />
+          <entry key="PLAIN_TEXT" value="151" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -126,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="114" column="70" selection-start-line="114" selection-start-column="70" selection-end-line="114" selection-end-column="70" />
+            <state relative-caret-position="1734">
+              <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -269,7 +260,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543590980636" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543591102448" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
@@ -348,7 +339,28 @@
       <option name="project" value="LOCAL" />
       <updated>1543311210708</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="creating bot package">
+      <created>1543590901657</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543590901657</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1. menu to game screen restored( all working)&#10;2. music muted(just added comment lines) for annoying as found too much annoying to work.">
+      <created>1543590967045</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1543590967045</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1. menu to game screen restored( all working)&#10;2. music muted(just added comment lines) for annoying as found too much annoying to work.">
+      <created>1543591019384</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543591019384</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -364,15 +376,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3202847" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3202847" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3291815" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32740214" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32740214" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -389,7 +401,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changing everything" />
     <MESSAGE value="creating bot package" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating bot package" />
+    <MESSAGE value="1. menu to game screen restored( all working)&#10;2. music muted(just added comment lines) for annoying as found too much annoying to work." />
+    <option name="LAST_COMMIT_MESSAGE" value="1. menu to game screen restored( all working)&#10;2. music muted(just added comment lines) for annoying as found too much annoying to work." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/Bot/Bot.java" />
@@ -481,8 +494,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2DGameWithLibraryRoot/2DGame/src/main/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="114" column="70" selection-start-line="114" selection-start-column="70" selection-end-line="114" selection-end-column="70" />
+        <state relative-caret-position="1734">
+          <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
