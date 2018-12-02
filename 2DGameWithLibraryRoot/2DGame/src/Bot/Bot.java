@@ -100,8 +100,23 @@ public class Bot extends CreatureBot {
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(Assets.thiefFront, (int) (x - handler.getGameCamera().getxOffset()),
-				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+		if(Bot.getK() == 1) {
+			g.drawImage(Assets.thiefFront, (int) (x - handler.getGameCamera().getxOffset()),
+					(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+		} else if (Bot.getK() == 2) {
+			g.drawImage(Assets.thiefRight, (int) (x - handler.getGameCamera().getxOffset()),
+					(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+		} else if (Bot.getK() == 3) {
+			g.drawImage(Assets.thiefLeft, (int) (x - handler.getGameCamera().getxOffset()),
+					(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+		} else if (Bot.getK() == 0) {
+			g.drawImage(Assets.thiefBack, (int) (x - handler.getGameCamera().getxOffset()),
+					(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+		}
+
+
+
+
 		g.setColor(Color.red);
 		
 //		g.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
