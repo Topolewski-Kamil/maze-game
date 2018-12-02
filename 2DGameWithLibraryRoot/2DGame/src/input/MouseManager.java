@@ -1,5 +1,7 @@
 package input;
 
+import ui.UIManager;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -12,6 +14,12 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     public MouseManager(){
 
     }
+    // new 10:31
+    private UIManager uiManager;
+    public void setUIManager(UIManager uiManager){
+        this.uiManager = uiManager;
+    }
+    // end of new 10:31
     // Getters
 
     public boolean isLeftPressed(){
@@ -46,6 +54,10 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             leftPressed = false;
         else if(e.getButton() == MouseEvent.BUTTON3)
             rightPressed = false;
+        // new 10:31
+        if(uiManager != null)
+            uiManager.onMouseRelease(e);
+        // end of new 10:31
     }
 
     @Override
@@ -53,6 +65,10 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         mouseX = e.getX();
         mouseY = e.getY();
 
+        // new 10:31
+        if(uiManager != null)
+            uiManager.onMouseMove(e);
+        // end of new 10:31
     }
 
     @Override

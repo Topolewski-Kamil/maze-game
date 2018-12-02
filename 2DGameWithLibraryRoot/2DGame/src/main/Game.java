@@ -63,13 +63,13 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
 
         handler = new Handler(this);
         gameCamera = new GameCamera(handler, 0, 0);
-        handler = new Handler(this);
+        //handler = new Handler(this); // <--- we really need 2 of these?
 
         // create new states
         gameState = new GameState(handler); // set the object to GameState()
         menuState = new MenuState(handler);
 
-        //State.setState(menuState);
+        //State.setState(gameState);
         State.setState(menuState); // set the current state to gameState
     }
 
@@ -173,5 +173,14 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     public Tile getTile(int x, int y) { // return Tile object       
             return Tile.grassTile;
 
+    }
+    public void reloadMenuState(){
+        Assets.init();
+        menuState = new MenuState(handler);
+    }
+    public void reloadGameState(){
+        Assets.init();
+        gameState = new GameState(handler);
+        gameCamera = new GameCamera(handler, 0, 0);
     }
 }

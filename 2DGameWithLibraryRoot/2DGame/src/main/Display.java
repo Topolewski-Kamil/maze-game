@@ -8,7 +8,6 @@ public class Display {
     private Canvas canvas; //its like a layer on jframe on which we can draw
     //it would not be reachable because its private, but we created public method getCanvas
 
-
     // variables which will describe frame
     private String title;
     private int width, height;

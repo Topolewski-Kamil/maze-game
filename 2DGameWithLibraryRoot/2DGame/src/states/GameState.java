@@ -1,14 +1,20 @@
 package states;
 import java.awt.*;
+import java.io.File;
 
 import Bot.Bot;
 import creaturesSight.Player;
 import creaturesSight.Sight;
+import jdk.internal.util.xml.impl.Input;
 import main.Handler;
 import main.State;
 import powerUps.EagleEyeEntity;
 import powerUps.SpeedUpEntity;
 import world.World;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class GameState extends State {
 
@@ -28,7 +34,6 @@ public class GameState extends State {
 		s = new Sight(handler, 100, 100);
 		eagle = new EagleEyeEntity(handler, 100, 100);
 		bot = new Bot(handler, 64, 64);
-		
 	}
 
 	public void update() {
@@ -38,7 +43,13 @@ public class GameState extends State {
 		s.update();
 		eagle.update();
 		bot.update();
-
+		if(handler.getKeyManager().escape)
+		{
+			MenuState.clip2.stop();//stop music 2
+			MenuState.GameStarted();
+			handler.getGame().reloadMenuState();
+			State.setState(handler.getGame().menuState);
+		}
 	}
 
 	// draws things in this state
@@ -49,8 +60,5 @@ public class GameState extends State {
 		bot.render(g);
 		s.render(g);
 		player.render(g);
-
-		
-
 	}
 }
