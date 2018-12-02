@@ -111,6 +111,8 @@ public class World {
         int b=r.nextInt(28)+1;
         tiles[a][b]=4;
         
+        System.out.println("a: " + a + "b:" + b);
+        
     }
 
     public int getWidth() {

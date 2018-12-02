@@ -41,7 +41,9 @@ public class Tile {
     public boolean isPowerUp() {
     	return false;
     }
-    public boolean isDoor(){return false;}
+    public boolean isDoor() {
+    	return false;
+    	}
 
     public int whichPowerUp() {
     	return 0;

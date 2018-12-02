@@ -16,9 +16,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 	protected float xMove, yMove;
 	private int tx, ty;
 
-	private static long millis = System.currentTimeMillis() % 1000;
-	private static long currentTime = 10000000;
-
 	public int getHealth() {
 		return health;
 	}
@@ -59,10 +56,34 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 	public void moveX() {
 		if (xMove > 0) {// Moving right
 			tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-			
+
 			if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 				x += xMove;
 				Bot.setCount(0);
+			} else {
+
+				Bot.setK(Bot.upOrDown());
+
+				if (Bot.getK() == 0) {
+
+					ty = (int) (y + yMove - 10 + bounds.y) / Tile.TILEHEIGHT;
+					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
+						y += yMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(1);
+					}
+
+				} else {
+					ty = (int) (y + yMove + 10 + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
+						y += yMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(0);
+					}
+
+				}
 			}
 
 		} else if (xMove < 0) {// Moving left
@@ -71,7 +92,30 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 			if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 				x += xMove;
 				Bot.setCount(0);
+			} else {
 
+				Bot.setK(Bot.upOrDown());
+
+				if (Bot.getK() == 0) {
+
+					ty = (int) (y + yMove - 10 + bounds.y) / Tile.TILEHEIGHT;
+					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
+						y += yMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(1);
+					}
+
+				} else {
+					ty = (int) (y + yMove + 10 + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
+						y += yMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(0);
+					}
+
+				}
 			}
 		}
 	}
@@ -83,43 +127,80 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 			if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 				y += yMove;
 				Bot.setCount(0);
+			} else {
 
+				Bot.setK(Bot.rightOrLeft());
+
+				if (Bot.getK() == 2) {
+
+					tx = (int) (x + xMove + 10 + bounds.x + bounds.width) / Tile.TILEWIDTH;
+					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
+						x += xMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(3);
+					}
+
+				} else {
+					tx = (int) (x + xMove - 10 + bounds.x) / Tile.TILEWIDTH;
+					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
+						x += xMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(2);
+					}
+
+				}
 			}
 		} else if (yMove > 0) {// Down
 			ty = (int) (y + yMove + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 
 			if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 				y += yMove;
-				Bot.setCount(0);
+				Bot.setCount(3);
+			} else {
 
+				Bot.setK(Bot.rightOrLeft());
+
+				if (Bot.getK() == 2) {
+
+					tx = (int) (x + xMove + 10 + bounds.x + bounds.width) / Tile.TILEWIDTH;
+					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
+						x += xMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(3);
+					}
+
+				} else {
+					tx = (int) (x + xMove - 10 + bounds.x) / Tile.TILEWIDTH;
+					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
+						x += xMove;
+						Bot.setCount(0);
+					} else {
+						Bot.setK(2);
+					}
+
+				}
 			}
 		}
 	}
 
-	protected boolean moveIfNotCollision(int tex, int ex, int bounds, int bounds2) {
-		if (tex == tx) {
-			if (!collision(tex, (int) (ex + bounds) / Tile.TILEHEIGHT)
-					&& !collision(tex, (int) (ex + bounds + bounds2) / Tile.TILEHEIGHT)) {
-
+	protected boolean moveIfNotCollision(int te, float ex, int bounds, int bounds2) {
+		if (te == ty) {
+			if (!collision((int) (ex + bounds) / Tile.TILEWIDTH, te)
+					&& !collision((int) (x + bounds + bounds2) / Tile.TILEWIDTH, te)) {
 				return true;
-
 			} else {
-
 				return false;
 			}
-		}
-		if (tex == ty) {
-			if (!collision((int) (ex + bounds) / Tile.TILEWIDTH, tex)
-					&& !collision((int) (ex + bounds + bounds2) / Tile.TILEWIDTH, tex)) {
-
+		} else {
+			if (!collision(tx, (int) (ex + bounds) / Tile.TILEHEIGHT)
+					&& !collision(tx, (int) (ex + bounds + bounds2) / Tile.TILEHEIGHT)) {
 				return true;
-
-			} else {
-
-				return false;
 			}
+			return false;
 		}
-		return false;
 	}
 
 	protected boolean collision(int x, int y) {
@@ -131,7 +212,5 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 		super(handler, x, y, width, height); // passes those variables to Entity constructor variables
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
-		xMove = 100;
-		yMove = 100;
 	}
 }

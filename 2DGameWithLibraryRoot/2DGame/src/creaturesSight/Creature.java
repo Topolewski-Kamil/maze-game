@@ -10,6 +10,7 @@ import javax.swing.*;
 public abstract class Creature extends Entity { // using methods from Entity
 
 	public SpeedUpEntity p1;
+	boolean a = false;// kwedklsa
 
 	public static final int DEFAULT_HEALTH = 10;
 	public static final float DEFAULT_SPEED = 4.0f;
@@ -73,25 +74,22 @@ public abstract class Creature extends Entity { // using methods from Entity
 	}
 
 
-boolean  a =false;//kwedklsa
 
 	public void moveX() {
-		if(returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
+		
+		if (returnIsItDoor(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT)
 				&& returnIsItDoor(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT)) {
-			while(a==false) {
-				Message.infoBox("You found the door, now go catch the thief and bring it here!", "Good job!");
-				tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
-				ty = (int) (y + yMove + bounds.y) / Tile.TILEHEIGHT;
-				a=true;
-
+			if (a == false) {
+//				Message.infoBox("You found the door, now go catch the thief and bring it here!", "Good job!");
+				System.out.println("tried");
+				a = true;
+				return;
 			}
 
 		}
-
+	
 
 		if (xMove > 0) {// Moving right
-
-
 
 			tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 			gx = (int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH;
@@ -145,24 +143,28 @@ boolean  a =false;//kwedklsa
 			gx = (int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH;
 
 			// check for powerUps when moving left
-			if (SpeedUpEntity.isEaten() == false) {
-				if (checkCoordinatesForPowerUp(tx, y, bounds.y, bounds.height, 1)) {
-					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 1
-							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
+			
+	
+
+			if (checkCoordinatesForPowerUp(tx, y, bounds.y, bounds.height, 1)) {
+				if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 1
+						|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 1) {
+					if (SpeedUpEntity.isEaten() == false) {
 						this.setSpeed(6.0f);
 						SpeedUpEntity.setEaten(true);
 						currentTime = System.currentTimeMillis();
 					}
-					if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 2
-							|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
-						if (EagleEyeEntity.isEaten() == false) {
-							Sight.setSize(2500);
-							Sight.setPowerX(-250);
-							Sight.setPowerY(-260);
-							EagleEyeEntity.setEaten(true);
-							currentTime = System.currentTimeMillis();
-						}
+				}
+				if (returnIdOfPowerUp(gx, (int) (y + bounds.y) / Tile.TILEHEIGHT) == 2
+						|| returnIdOfPowerUp(gx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT) == 2) {
+					if (EagleEyeEntity.isEaten() == false) {
+						Sight.setSize(2500);
+						Sight.setPowerX(-250);
+						Sight.setPowerY(-260);
+						EagleEyeEntity.setEaten(true);
+						currentTime = System.currentTimeMillis();
 					}
+
 				}
 			}
 			// check for wall when moving left
@@ -174,8 +176,6 @@ boolean  a =false;//kwedklsa
 	}
 
 	public void moveY() {
-
-
 
 		if (SpeedUpEntity.isEaten() == true) {
 			if (System.currentTimeMillis() - currentTime > 3000) {
@@ -250,13 +250,9 @@ boolean  a =false;//kwedklsa
 		}
 	}
 
+	public static class Message {
 
-
-	public static class Message
-	{
-
-		public static void infoBox(String infoMessage, String titleBar)
-		{
+		public static void infoBox(String infoMessage, String titleBar) {
 			JOptionPane.showMessageDialog(null, infoMessage, titleBar, JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
@@ -265,7 +261,9 @@ boolean  a =false;//kwedklsa
 		return handler.getWorld().getTile(x, y).isSolid();
 	}
 
-	protected boolean returnIsItDoor (int x, int y){return handler.getWorld().getTile(x,y).isDoor();}
+	protected boolean returnIsItDoor(int x, int y) {
+		return handler.getWorld().getTile(x, y).isDoor();
+	}
 
 	protected boolean returnIsItPowerUp(int x, int y) {
 		return handler.getWorld().getTile(x, y).isPowerUp();

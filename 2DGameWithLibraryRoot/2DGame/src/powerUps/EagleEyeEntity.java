@@ -36,7 +36,6 @@ public class EagleEyeEntity extends Entity {
 						(int) ((World.eagleEyeArray(i + 1) * Tile.TILEHEIGHT) - handler.getGameCamera().getyOffset()),
 						Tile.TILEWIDTH, Tile.TILEHEIGHT, null);
 			}
-
 		}
 	}
 }
