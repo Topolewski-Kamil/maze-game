@@ -13,6 +13,9 @@ public class DoorTile extends Tile {
     public boolean isDoor(){
         return true;
     }
-    public boolean isSolid(){return true;}
+
+    public boolean isSolid(){
+    	return true;
+    	}
 }
 

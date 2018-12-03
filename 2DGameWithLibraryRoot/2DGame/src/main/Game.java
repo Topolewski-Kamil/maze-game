@@ -1,6 +1,7 @@
 package main;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+
 import creaturesSight.Creature;
 import input.MouseManager;
 import readersLoaders.KeyManager;
@@ -48,6 +49,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
 
     private void init() { // initializes all the graphics
         display = new Display(title, width, height);
+        display.getFrame().addKeyListener(keyManager);
 
         //start of: 12:20 PM 11/29/2018
         //display.getFrame().addKeyListener(keyManager);
@@ -58,6 +60,9 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         display.getFrame().addKeyListener(keyManager);
         display.getCanvas().addKeyListener(keyManager);
         //end of: 12:20 PM 11/29/2018
+        
+        display.getFrame().addKeyListener(keyManager);
+
 
         Assets.init();
 
@@ -81,6 +86,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
             State.getState().update(); // update it
         }
     }
+
     private void render(){ // drawing method
         // buffer is a hidden screen which prevent flicking
         bs = display.getCanvas().getBufferStrategy(); // object get display canvas; how many buffers we are going to use
@@ -107,12 +113,13 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     public void run() {
         init(); // call our display/img etc
 
-        int fps = 50; // how many times a second should it refresh
+        int fps = 60; // how many times a second should it refresh
         double timePerUpload = 1_000_000_000 / fps; // in one second how many times we want to refresh
                                                   // 1 bilion nanosecond = 1 second, because more specific'
         double delta = 0; //
         long now; //
         long lastTime = System.nanoTime(); // returns time of our game
+        long timer = 0;
 
         //loop which will update and render
         while(running){ // as long as running equals true
@@ -127,9 +134,16 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
                 delta--;
 
             }
+            if(timer >= 1000000000)
+            {
+                System.out.println("Time: " + timer);
+                timer = 0;
+            }
         }
         stop();
     }
+
+    //public State getGameState() { return gameState; }
 
     public KeyManager getKeyManager() {
         return keyManager;

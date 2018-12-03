@@ -29,11 +29,11 @@ public abstract class EntityBot {
     }
 
 
-    public EntityBot(Handler handler, float x, float y, int with, int height) { // position x & y, size width & height
+    public EntityBot(Handler handler, float x, float y, int width, int height) { // position x & y, size width & height
         this.handler = handler;
         this.x = x;
         this.y = y;
-        this.width = with;
+        this.width = width;
         this.height = height;
 
         bounds = new Rectangle(0, 0, width, height);
