@@ -74,8 +74,8 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         gameState = new GameState(handler); // set the object to GameState()
         menuState = new MenuState(handler);
 
-        //State.setState(gameState);
-        State.setState(menuState); // set the current state to gameState
+        State.setState(gameState);
+//        State.setState(menuState);
     }
 
 

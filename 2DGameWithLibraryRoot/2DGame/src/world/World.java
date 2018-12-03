@@ -103,15 +103,15 @@ public class World {
 
 
         }
-        Random r=new Random();
-        int[] locx= new int[2];
-        locx[0]=0;
-        locx[1]=29;
-        int a=getRandom(locx);
-        int b=r.nextInt(28)+1;
-        tiles[a][b]=4;
+        Random r = new Random();
+        int[] locx = new int[2];
+        locx[0] = 0;
+        locx[1] = 29;
+        int a = getRandom(locx);
+        int b = r.nextInt(28)+1;
+        tiles[a][b] = 4;
         
-        System.out.println("a: " + a + "b:" + b);
+        System.out.println("a: " + a + " b:" + b);
         
     }
 
