@@ -19,7 +19,7 @@ public class Assets {
 
     public static void init(){ // load everything in our game
     	SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures1/sheet.png"));
-        SpriteSheet playersheet = new SpriteSheet(ImageLoader.loadImage("/textures1/playersheet2.png"));
+        SpriteSheet playersheet = new SpriteSheet(ImageLoader.loadImage("/textures1/playersheet.png"));
         SpriteSheet holesheet = new SpriteSheet(ImageLoader.loadImage("/textures1/hole2.png"));
         SpriteSheet doorimg = new SpriteSheet(ImageLoader.loadImage("/textures1/closed.png"));
 
