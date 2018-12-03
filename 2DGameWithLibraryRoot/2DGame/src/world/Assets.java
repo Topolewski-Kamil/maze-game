@@ -19,7 +19,7 @@ public class Assets {
 
     public static void init(){ // load everything in our game
     	SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures1/sheet.png"));
-        SpriteSheet playersheet = new SpriteSheet(ImageLoader.loadImage("/textures1/playersheet.png"));
+        SpriteSheet playersheet = new SpriteSheet(ImageLoader.loadImage("/textures1/playersheet2.png"));
         SpriteSheet holesheet = new SpriteSheet(ImageLoader.loadImage("/textures1/hole2.png"));
         SpriteSheet doorimg = new SpriteSheet(ImageLoader.loadImage("/textures1/closed.png"));
 
@@ -56,7 +56,7 @@ public class Assets {
         thiefLeft = playersheet.crop(610, 0, 190, 250);
 
         policeFront = playersheet.crop(30, 300, 170, 250);
-        policeRight = playersheet.crop(200, 300, 170, 250);
+        policeRight = playersheet.crop(220, 300, 170, 250);
         policeBack = playersheet.crop(440, 300, 170, 250);
         policeLeft = playersheet.crop(590, 300, 170, 250);
 

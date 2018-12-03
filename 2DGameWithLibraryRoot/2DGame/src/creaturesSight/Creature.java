@@ -177,9 +177,12 @@ public abstract class Creature extends Entity { // using methods from Entity
 
 	public void moveY() {
 
-		if (SpeedUpEntity.isEaten() == true) {
+		if (SpeedUpEntity.isEaten() == true || EagleEyeEntity.isEaten() == true) {
 			if (System.currentTimeMillis() - currentTime > 3000) {
 				this.setSpeed(4.0f);
+				Sight.setSize(2000);
+				Sight.setPowerX(0);
+				Sight.setPowerY(0);
 			}
 			if (System.currentTimeMillis() - currentTime > 6000) {
 				SpeedUpEntity.setEaten(false);
