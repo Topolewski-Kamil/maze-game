@@ -12,7 +12,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+//
 public class HighScoreState extends State {
 
     Scanner read;
