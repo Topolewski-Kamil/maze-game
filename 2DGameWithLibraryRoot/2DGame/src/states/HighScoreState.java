@@ -1,5 +1,6 @@
 package states;
 
+import main.Display;
 import main.Handler;
 import main.State;
 import ui.ClickListener;
@@ -15,15 +16,15 @@ import java.util.Scanner;
 public class HighScoreState extends State {
 
     Scanner read;
+    private Display display;
 
     ArrayList<String> n = new ArrayList<>();
     ArrayList<Integer> s = new ArrayList<>();
 
-    public HighScoreState(Handler handler) {
+    public HighScoreState(Handler handler, Display display) {
         super(handler);
+        this.display = display;
         loadScores();
-       // System.out.println(read());
-
     }
 
     @Override
@@ -38,6 +39,23 @@ public class HighScoreState extends State {
     @Override
     public void render(Graphics g) {
 
+        Font fnt0 = new Font("arial", Font.BOLD, 70);
+        g.setFont(fnt0);
+        g.setColor(Color.black);
+        int x = 60;
+        int y = 30;
+        int i = 100;
+        for (String p : n )
+        {
+            //g.drawRect(y, x, 35, 20);
+            g.drawString(p, y, x);
+            x+=i;
+
+        }
+        for (int k : s){
+            //g.draw(k, 120 , x);
+            x+=i;
+        }
     }
 
     public void loadScores()
@@ -67,5 +85,9 @@ public class HighScoreState extends State {
         {
             System.out.println(e);
         }
+    }
+
+    private void ShowScores(){
+
     }
 }
