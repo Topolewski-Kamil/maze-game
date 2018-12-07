@@ -6,12 +6,14 @@ import creaturesSight.Creature;
 import input.MouseManager;
 import readersLoaders.KeyManager;
 import states.GameState;
+import states.HighScoreState;
+import states.HowToPlayState;
 import states.MenuState;
 import world.Assets;
 import world.Tile;
 
 //will hold all base code - start, run, close
-public class Game  implements Runnable  { // Runnable - allows to run the thread
+public class Game implements Runnable  { // Runnable - allows to run the thread
 
     private Display display; // initialize an object
     private int width, height; // size of window
@@ -26,6 +28,8 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     //States
     public State gameState; //creating state object called "gameState"
     public State menuState;
+    public State highScoreState;
+    public State howToPlayState;
 
     //Input
     private KeyManager keyManager;
@@ -49,7 +53,6 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
 
     private void init() { // initializes all the graphics
         display = new Display(title, width, height);
-        display.getFrame().addKeyListener(keyManager);
 
         //start of: 12:20 PM 11/29/2018
         //display.getFrame().addKeyListener(keyManager);
@@ -61,8 +64,7 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         display.getCanvas().addKeyListener(keyManager);
         //end of: 12:20 PM 11/29/2018
         
-        display.getFrame().addKeyListener(keyManager);
-
+        //display.getFrame().addKeyListener(keyManager);
 
         Assets.init();
 
@@ -71,11 +73,14 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         //handler = new Handler(this); // <--- we really need 2 of these?
 
         // create new states
-        gameState = new GameState(handler); // set the object to GameState()
-        menuState = new MenuState(handler);
+        gameState = new GameState(handler, display); // set the object to GameState()
+        menuState = new MenuState(handler, display);
+        highScoreState = new HighScoreState(handler);
+        howToPlayState = new HowToPlayState(handler, display);
 
-        State.setState(gameState);
-//        State.setState(menuState);
+        //State.setState(gameState);
+        State.setState(menuState);
+        //State.setState(highScoreState);
     }
 
 
@@ -143,8 +148,6 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
         stop();
     }
 
-    //public State getGameState() { return gameState; }
-
     public KeyManager getKeyManager() {
         return keyManager;
     }
@@ -190,11 +193,11 @@ public class Game  implements Runnable  { // Runnable - allows to run the thread
     }
     public void reloadMenuState(){
         Assets.init();
-        menuState = new MenuState(handler);
+        menuState = new MenuState(handler, display);
     }
     public void reloadGameState(){
         Assets.init();
-        gameState = new GameState(handler);
+        gameState = new GameState(handler, display);
         gameCamera = new GameCamera(handler, 0, 0);
     }
 }

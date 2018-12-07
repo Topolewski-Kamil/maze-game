@@ -4,6 +4,9 @@ import input.MouseManager;
 import readersLoaders.KeyManager;
 import world.World;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Handler {
 
     private Game game;
@@ -48,4 +51,5 @@ public class Handler {
     public int getHeight() {
         return game.getHeight();
     }
+
 }

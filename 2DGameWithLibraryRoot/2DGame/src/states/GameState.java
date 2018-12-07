@@ -1,11 +1,14 @@
 package states;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 import Bot.Bot;
 import creaturesSight.Player;
 import creaturesSight.Sight;
 import jdk.internal.util.xml.impl.Input;
+import main.Display;
 import main.Handler;
 import main.State;
 import powerUps.EagleEyeEntity;
@@ -15,6 +18,7 @@ import world.World;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.*;
 
 public class GameState extends State {
 
@@ -24,8 +28,10 @@ public class GameState extends State {
 	private Sight s;
 	private EagleEyeEntity eagle;
 	private Bot bot;
+	static int score;
+	private Display display;
 
-	public GameState(Handler handler) { // constructor
+	public GameState(Handler handler, Display display) { // constructor
 		super(handler);
 		world = new World(handler, "res1/maps/map0.txt");
 		handler.setWorld(world);
@@ -34,6 +40,7 @@ public class GameState extends State {
 		s = new Sight(handler, 100, 100);
 		eagle = new EagleEyeEntity(handler, 100, 100);
 		bot = new Bot(handler, 64, 64);
+		this.display = display;
 	}
 
 	public void update() {
@@ -45,13 +52,11 @@ public class GameState extends State {
 		bot.update();
 		if(handler.getKeyManager().escape)
 		{
-			MenuState.clip2.stop();//stop music 2
 			MenuState.GameStarted();
 			handler.getGame().reloadMenuState();
 			State.setState(handler.getGame().menuState);
 		}
 	}
-
 	// draws things in this state
 	public void render(Graphics g) {
 		world.render(g);
@@ -60,5 +65,24 @@ public class GameState extends State {
 		bot.render(g);
 		s.render(g);
 		player.render(g);
+	}
+
+	public void createAndShowGUI() {
+		JFrame frame = display.getFrame();
+		frame.getContentPane().setLayout(new FlowLayout());
+		JLabel label = new JLabel("Score: ");
+		JButton button = new JButton("+10");
+		button.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				score = score + 10;
+				label.setText("Score: " + score);
+				frame.pack();
+			}
+		});
+		frame.add(label);
+		frame.add(button);
+		frame.pack();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

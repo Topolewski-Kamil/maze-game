@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Display {
 
-    private JFrame frame;
-    private Canvas canvas; //its like a layer on jframe on which we can draw
+    private  JFrame frame;
+    private  Canvas canvas; //its like a layer on jframe on which we can draw
     //it would not be reachable because its private, but we created public method getCanvas
 
     // variables which will describe frame
@@ -38,14 +38,13 @@ public class Display {
 
         frame.add(canvas); // add the canvas to our frame
         frame.pack(); //resize a window so we can see the whole canvas
-
     }
 
-    public Canvas getCanvas() {
+    public  Canvas getCanvas() {
         return canvas;
     }
 
-    public JFrame getFrame() {
+    public  JFrame getFrame() {
         return frame;
     }
 }

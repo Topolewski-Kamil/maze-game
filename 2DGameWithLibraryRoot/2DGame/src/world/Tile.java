@@ -14,7 +14,6 @@ public class Tile {
     public static Tile eagleTile = new EagleEyeTile(3);
     public static Tile doorTile = new DoorTile(4);
 
-
     protected  BufferedImage texture;
     protected final int id;
     public static final int TILEWIDTH = 64, TILEHEIGHT = 64;
@@ -44,7 +43,6 @@ public class Tile {
     public boolean isDoor() {
     	return false;
     	}
-
     public int whichPowerUp() {
     	return 0;
     }
