@@ -4,7 +4,6 @@ import main.Display;
 import main.Handler;
 import main.State;
 import ui.UIManager;
-
 import java.awt.*;
 
 public class HowToPlayState extends State {
