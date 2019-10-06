@@ -1,40 +1,74 @@
 package creaturesSight;
-import java.awt.Graphics;
 
+import java.awt.Graphics;
 import main.Handler;
 import world.Assets;
 
-public class Sight extends Entity {
-	public static int size = 2000;
-	public static int powerX = 0;
-	public static int powerY = 0;	
+/**
+ * Class that draws players' sight limit
+ */
+public class Sight {
 
-	public static void setPowerX(int powerX) {
+	private Handler handler;
+
+	// first coordinate of sight
+	private float xCircle;
+
+	// second coordinate of sight
+	private float yCircle;
+
+	private Player player;
+
+	// size of sight image
+	static int size = 2500;
+
+	private static int powerX = 0;
+	private static int powerY = 0;
+
+	private static void setPowerX(int powerX) {
 		Sight.powerX = powerX;
 	}
 
-	public static void setPowerY(int powerY) {
+	private static void setPowerY(int powerY) {
 		Sight.powerY = powerY;
 	}
 
-	public Sight(Handler handler, float x, float y) {
-		super(handler, x, y, size, size);
+	public Sight(Handler handler, float x, float y, Player player) {
+		this.handler = handler;
+		this.xCircle = player.getPlayerX();
+		this.yCircle = player.getPlayerY();
+		this.player = player;
+
 	}
+
 	public static void setSize(int size) {
 		Sight.size = size;
 	}
 
 	public void update() {
+		xCircle = player.getPlayerX();
+		yCircle = player.getPlayerY();
 
 	}
 
+	public static void eagleEyeEnable() {
+		setSize(3300);
+		setPowerX(-400);
+		setPowerY(-400);
+	}
+
+	public static void eagleEyeDisable() {
+		Sight.setSize(2500);
+		Sight.setPowerX(0);
+		Sight.setPowerY(0);
+	}
+
+	/**
+	 * method rendering the whole in the image on the player and moving with him
+	 */
 	public void render(Graphics g) {
+		g.drawImage(Assets.hole, (int) (xCircle - 1260 - handler.getGameCamera().getxOffset()) + powerX,
+				(int) (yCircle - 1258 - handler.getGameCamera().getyOffset()) + powerY, size, size, null);
 		
-		 g.drawImage(Assets.hole, (int) (x - 1000 + bounds.x - handler.getGameCamera().getxOffset()) +  powerX ,
-				(int) (y - 1000 + bounds.y - handler.getGameCamera().getyOffset()) + powerY, size, size, null);
 	}
-
-
-	
-
 }

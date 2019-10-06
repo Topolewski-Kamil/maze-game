@@ -3,6 +3,9 @@ package ui;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+/**
+ * Class that creates different images for the buttons
+ */
 public class UIImageButton extends UIObject {
 
     private BufferedImage[] images;
@@ -17,6 +20,10 @@ public class UIImageButton extends UIObject {
     @Override
     public void tick() {}
 
+    /**
+     * Whenever a user hovers over an image of the button , change it
+     * @param g Graphics
+     */
     @Override
     public void render(Graphics g) {
         if(hovering)

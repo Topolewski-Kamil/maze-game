@@ -1,4 +1,5 @@
 package powerUps;
+
 import java.awt.Graphics;
 
 import creaturesSight.Entity;
@@ -6,7 +7,9 @@ import main.Handler;
 import world.Assets;
 import world.Tile;
 import world.World;
-
+/**
+ * Speed increase entity class, draws the power up and manages its states.
+ */
 public class SpeedUpEntity extends Entity {
 
 	public SpeedUpEntity(Handler handler, float x, float y) {
@@ -28,8 +31,9 @@ public class SpeedUpEntity extends Entity {
 
 	}
 
+	@Override
 	public void render(Graphics g) {
-		if (SpeedUpEntity.isEaten() == true) {
+		if (SpeedUpEntity.isEaten()) {
 			for (int i = 0; i < World.lengthOfSpeedUp(); i = i + 2) {
 				g.drawImage(Assets.grass,
 						(int) (((World.speedUpArray(i)) * Tile.TILEWIDTH) - handler.getGameCamera().getxOffset()),

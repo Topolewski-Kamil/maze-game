@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="main.Game" project="p1" file="/p1/2DGameWithLibraryRoot/2DGame/src/main/Game.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="484" width="234" x="2216" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="states.GameState" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/states/GameState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="190" x="2017" y="1391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="world.Assets" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/world/Assets.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="646" width="205" x="598" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="world.Tile" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/world/Tile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="184" x="3897" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="states.HowToPlayState" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/states/HowToPlayState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="173" x="1595" y="1391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="main.Launcher" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/main/Launcher.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="130" x="843" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="powerUps.SpeedUpEntity" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/powerUps/SpeedUpEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="220" x="2573" y="1788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="states.HighScoreState" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/states/HighScoreState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="169" x="1808" y="1391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="main.GameCamera" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/main/GameCamera.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="213" x="2216" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="readersLoaders.ImageLoader" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/readersLoaders/ImageLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="213" x="1013" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="world.WallTile" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/world/WallTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="122" x="3550" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="powerUps.EagleEyeTile" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/powerUps/EagleEyeTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="145" x="3712" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="main.Handler" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/main/Handler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="234" x="2249" y="2527"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="main.State" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/main/State.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="159" width="149" x="2017" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="input.MouseManager" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/input/MouseManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="376" width="224" x="3248" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="powerUps.SpeedUpTile" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/powerUps/SpeedUpTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="145" x="3897" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="world.GrassTile" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/world/GrassTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="104" x="4082" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="world.SpriteSheet" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/world/SpriteSheet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="213" x="1266" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="ui.UIManager" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/ui/UIManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="466" width="241" x="3248" y="1788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="creaturesSight.Entity" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Entity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="249" width="203" x="2831" y="1391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="input.KeyManager" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/input/KeyManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="190" x="1600" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="world.DoorTile" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/world/DoorTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="122" x="4226" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="bot.CreatureBot" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/bot/CreatureBot.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="357" width="266" x="1268" y="1391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="24" language="java" name="ui.ClickListener" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/ui/ClickListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="120" x="3248" y="3232"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="25" language="java" name="bot.Bot" project="p1" file="/p1/2DGameWithLibraryRoot/2DGame/src/bot/Bot.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="286" width="155" x="1379" y="1788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="creaturesSight.Creature" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Creature.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="699" width="354" x="2833" y="1788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="states.MusicPlayer" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/states/MusicPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="198" x="1519" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="powerUps.EagleEyeEntity" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/powerUps/EagleEyeEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="223" x="2310" y="1788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="main.Display" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/main/Display.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="147" x="1830" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="bot.EntityBot" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/bot/EntityBot.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="285" width="223" x="1337" y="975"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="states.MenuState" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/states/MenuState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="232" width="153" x="3074" y="1391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="ui.UIObject" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/ui/UIObject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="465" width="231" x="3248" y="2527"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="states.HighScore" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/states/HighScore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="394" width="178" x="1757" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="ui.UIImageButton" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/ui/UIImageButton.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="380" x="3248" y="3032"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="readersLoaders.Utils" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/readersLoaders/Utils.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="201" x="1975" y="289"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="creaturesSight.Sight" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Sight.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="268" width="204" x="1807" y="1788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="world.World" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/world/World.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="340" width="156" x="2051" y="1788"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="creaturesSight.Player" project="p1" 
+    file="/p1/2DGameWithLibraryRoot/2DGame/src/creaturesSight/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="286" width="170" x="1807" y="2527"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="39">    
+    <bendpoint x="3257" y="1391"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="40" name="uiManager"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="43" name="keyManager"/>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="46" name="display"/>      
+      <multiplicity id="47" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="49">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="50" name="currentState"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <bendpoint x="3519" y="1788"/>    
+    <bendpoint x="3519" y="1391"/>    
+    <bendpoint x="3519" y="975"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="53" name="game"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="55">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="56">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="57" name="tiles"/>      
+      <multiplicity id="58" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="59">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="60">    
+    <bendpoint x="1564" y="1391"/>    
+    <bendpoint x="1564" y="1788"/>    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="61" name="handler"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="64" name="objects"/>      
+      <multiplicity id="65" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="67" name="e"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="70" name="handler"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="72">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <generalization id="73">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="74">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="75" name="mouseManager"/>      
+      <multiplicity id="76" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="77">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="78">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="79" name="highScoreState"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="82" name="clicker"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="85" name="bot"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="88" name="handler"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <bendpoint x="3217" y="1788"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="91" name="handler"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="94" name="gameState"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="96">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="97">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="98" name="eagle"/>      
+      <multiplicity id="99" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="100">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="101" name="player"/>      
+      <multiplicity id="102" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="104" name="eagleTile"/>      
+      <multiplicity id="105" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="107" name="uiManager"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="109">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <generalization id="110">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="111">    
+    <bendpoint x="1776" y="1788"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="112" name="player"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="114">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="115" name="doorTile"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="117">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="118" name="world"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="120">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="32"/>  
+  </generalization>  
+  <generalization id="121">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <association id="122">    
+    <bendpoint x="2459" y="975"/>    
+    <bendpoint x="2369" y="1391"/>    
+    <bendpoint x="2279" y="1788"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="123" name="handler"/>      
+      <multiplicity id="124" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="126" name="world"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="129" name="handler"/>      
+      <multiplicity id="130" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="131">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="132" name="s"/>      
+      <multiplicity id="133" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="134">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="135">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="136" name="grassTile"/>      
+      <multiplicity id="137" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="139" name="menuState"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="142" name="powerUp"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="144">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <association id="145">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="146" name="howToPlayState"/>      
+      <multiplicity id="147" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="148">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="149" name="wallTile"/>      
+      <multiplicity id="150" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="151">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="152" name="gameCamera"/>      
+      <multiplicity id="153" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="154">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <association id="155">    
+    <bendpoint x="2237" y="1391"/>    
+    <bendpoint x="2237" y="1788"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="156" name="handler"/>      
+      <multiplicity id="157" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="158">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <generalization id="159">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="160">    
+    <bendpoint x="2258" y="1391"/>    
+    <bendpoint x="2258" y="1788"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="161" name="handler"/>      
+      <multiplicity id="162" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

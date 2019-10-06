@@ -6,88 +6,94 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * Manages all of mouse input
+ */
 public class MouseManager implements MouseListener, MouseMotionListener {
 
-    private boolean leftPressed, rightPressed;
-    private int mouseX, mouseY;
+	private boolean leftPressed, rightPressed;
+	private int mouseX, mouseY;
 
-    public MouseManager(){
+	public MouseManager() {
 
-    }
-    // new 10:31
-    private UIManager uiManager;
-    public void setUIManager(UIManager uiManager){
-        this.uiManager = uiManager;
-    }
-    // end of new 10:31
-    // Getters
+	}
 
-    public boolean isLeftPressed(){
-        return leftPressed;
-    }
+	private UIManager uiManager;
 
-    public boolean isRightPressed(){
-        return rightPressed;
-    }
+	public void setUIManager(UIManager uiManager) {
+		this.uiManager = uiManager;
+	}
 
-    public int getMouseX(){
-        return mouseX;
-    }
+	public boolean isLeftPressed() {
+		return leftPressed;
+	}
 
-    public int getMouseY(){
-        return mouseY;
-    }
+	public boolean isRightPressed() {
+		return rightPressed;
+	}
 
-    // Implemented methods
+	public int getMouseX() {
+		return mouseX;
+	}
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-        if(e.getButton() == MouseEvent.BUTTON1)
-            leftPressed = true;
-        else if(e.getButton() == MouseEvent.BUTTON3)
-            rightPressed = true;
-    }
+	public int getMouseY() {
+		return mouseY;
+	}
 
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        if(e.getButton() == MouseEvent.BUTTON1)
-            leftPressed = false;
-        else if(e.getButton() == MouseEvent.BUTTON3)
-            rightPressed = false;
-        // new 10:31
-        if(uiManager != null)
-            uiManager.onMouseRelease(e);
-        // end of new 10:31
-    }
+	/**
+	 * Implemented methods
+	 * 
+	 * @param e
+	 */
 
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        mouseX = e.getX();
-        mouseY = e.getY();
+	@Override
+	public void mousePressed(MouseEvent e) {
+		if (e.getButton() == MouseEvent.BUTTON1)
+			leftPressed = true;
+		else if (e.getButton() == MouseEvent.BUTTON3)
+			rightPressed = true;
+	}
 
-        // new 10:31
-        if(uiManager != null)
-            uiManager.onMouseMove(e);
-        // end of new 10:31
-    }
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		if (e.getButton() == MouseEvent.BUTTON1)
+			leftPressed = false;
+		else if (e.getButton() == MouseEvent.BUTTON3)
+			rightPressed = false;
+		// new 10:31
+		if (uiManager != null)
+			uiManager.onMouseRelease(e);
+		// end of new 10:31
+	}
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        // TODO Auto-generated method stub
-    }
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		mouseX = e.getX();
+		mouseY = e.getY();
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-    }
+		// new 10:31
+		if (uiManager != null)
+			uiManager.onMouseMove(e);
+		// end of new 10:31
+	}
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-    }
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
 
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-    }
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
 }

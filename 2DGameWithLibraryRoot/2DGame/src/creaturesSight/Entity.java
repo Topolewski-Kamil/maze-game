@@ -1,51 +1,56 @@
 package creaturesSight;
-import java.awt.*;
 
+import java.awt.*;
 import main.Handler;
+
+/**
+ * Holds base code for every entity, abstract so that it will create specific
+ * entity. Has position(x,y) , update , render methods.
+ */
 
 public abstract class Entity {
 
-    protected Handler handler;
-    protected static float x;
-	protected static float y;
-    protected int width, height;
-    protected Rectangle bounds;
+	protected Handler handler;
 
-    public Rectangle getBounds() {
-		return bounds;
+	// first and second coordinate of the player
+	protected static float x, y;
+
+	// width and height of entity
+	protected int width, height;
+
+	// Rectangle witch will represent movement bound of the player
+	protected Rectangle bounds;
+
+	// Width to center gameCamera on the player
+	public int getWidth() {
+		return width;
 	}
 
-	public void setBounds(Rectangle bounds) {
-		this.bounds = bounds;
+	// Height to center gameCamera on the player
+	public int getHeight() {
+		return height;
 	}
 
-	public float getX() {
-        return x;
-    }
+	/**
+	 * Constructor to create entity
+	 * 
+	 * @param handler
+	 * @param x       Position
+	 * @param y       Position
+	 * @param with    size
+	 * @param height  size
+	 */
+	public Entity(Handler handler, float x, float y, int width, int height) {
+		this.handler = handler;
+		Entity.x = x;
+		Entity.y = y;
+		this.width = width;
+		this.height = height;
 
-    public float getY() {
-        return y;
-    }
+		bounds = new Rectangle(0, 0, width, height);
+	}
 
-    public int getWidth() {
-        return width;
-    }
+	public abstract void update();
 
-    public int getHeight() {
-        return height;
-    }
-
-
-    public Entity(Handler handler, float x, float y, int with, int height) { // position x & y, size width & height
-        this.handler = handler;
-        this.x = x;
-        this.y = y;
-        this.width = with;
-        this.height = height;
-
-        bounds = new Rectangle(0, 0, width, height);
-    }
-    // all classes extending it has to have them
-    public abstract void update();
-    public abstract void render(Graphics g);
+	public abstract void render(Graphics g);
 }

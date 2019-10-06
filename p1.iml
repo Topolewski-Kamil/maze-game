@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <libelement value="file://C:\Users\kamil\git\p1\res1" />
+    <libelement value="file://C:\Users\kamil\IdeaProjects\p1 game\p1 game\res1" />
     <src_description expected_position="1">
       <src_folder value="file://$MODULE_DIR$/2DGameWithLibraryRoot/2DGame/src" expected_position="1" />
     </src_description>
@@ -23,6 +23,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="JLayer1.0" level="project" />
   </component>
 </module>
