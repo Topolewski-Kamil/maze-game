@@ -1,51 +1,35 @@
-package Bot;
+package bot;
 
 import main.Handler;
 import world.Tile;
 
+/**
+ * Abstract class that creates different variables of the bot. Also describes
+ * its movement.
+ */
 public abstract class CreatureBot extends EntityBot { // using methods from Entity
 
-	// public PowerUpEntity p1;
-
-	public static final int DEFAULT_HEALTH = 10;
+	// speed of AI creature
 	public static final float DEFAULT_SPEED = 4.0f;
+
+	// width and height of AI creature
 	public static final int DEFAULT_CREATURE_WIDTH = 50, DEFAULT_CREATURE_HEIGHT = 60;
 
-	protected int health;
-	public float speed;
+	// variable of speed needed for changing direction of movement
+	protected float speed;
+
+	// variables for bot movement
 	protected float xMove, yMove;
+
+	// Coordinates in front of the player according to its movement
 	private int tx, ty;
 
-	public int getHealth() {
-		return health;
+	public static int getEx() {
+		return (int) x;
 	}
 
-	public float getxMove() {
-		return xMove;
-	}
-
-	public void setxMove(float xMove) {
-		this.xMove = xMove;
-	}
-
-	public float getyMove() {
-		return yMove;
-	}
-
-	public void setyMove(float yMove) {
-		this.yMove = yMove;
-	}
-
-	public void setHealth(int health) {
-		this.health = health;
-	}
-
-	public float getSpeed() {
-		return speed;
-	}
-
-	public void setSpeed(float speed) {
-		this.speed = speed;
+	public static int getEy() {
+		return (int) y;
 	}
 
 	public void move() {
@@ -53,13 +37,16 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 		moveY();
 	}
 
+	/**
+	 * Method which changes variables xMove and yMove - changes movement direction
+	 * of thief.
+	 */
 	public void moveX() {
 		if (xMove > 0) {// Moving right
 			tx = (int) (x + xMove + bounds.x + bounds.width) / Tile.TILEWIDTH;
 
 			if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 				x += xMove;
-				Bot.setCount(0);
 			} else {
 
 				Bot.setK(Bot.upOrDown());
@@ -69,7 +56,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					ty = (int) (y + yMove - 10 + bounds.y) / Tile.TILEHEIGHT;
 					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 						y += yMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(1);
 					}
@@ -78,7 +64,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					ty = (int) (y + yMove + 10 + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 						y += yMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(0);
 					}
@@ -91,7 +76,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 
 			if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 				x += xMove;
-				Bot.setCount(0);
 			} else {
 
 				Bot.setK(Bot.upOrDown());
@@ -101,7 +85,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					ty = (int) (y + yMove - 10 + bounds.y) / Tile.TILEHEIGHT;
 					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 						y += yMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(1);
 					}
@@ -110,7 +93,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					ty = (int) (y + yMove + 10 + bounds.y + bounds.height) / Tile.TILEHEIGHT;
 					if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 						y += yMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(0);
 					}
@@ -126,7 +108,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 
 			if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 				y += yMove;
-				Bot.setCount(0);
 			} else {
 
 				Bot.setK(Bot.rightOrLeft());
@@ -136,7 +117,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					tx = (int) (x + xMove + 10 + bounds.x + bounds.width) / Tile.TILEWIDTH;
 					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 						x += xMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(3);
 					}
@@ -145,7 +125,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					tx = (int) (x + xMove - 10 + bounds.x) / Tile.TILEWIDTH;
 					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 						x += xMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(2);
 					}
@@ -157,7 +136,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 
 			if (moveIfNotCollision(ty, (int) x, bounds.x, bounds.width)) {
 				y += yMove;
-				Bot.setCount(3);
 			} else {
 
 				Bot.setK(Bot.rightOrLeft());
@@ -167,7 +145,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					tx = (int) (x + xMove + 10 + bounds.x + bounds.width) / Tile.TILEWIDTH;
 					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 						x += xMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(3);
 					}
@@ -176,7 +153,6 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 					tx = (int) (x + xMove - 10 + bounds.x) / Tile.TILEWIDTH;
 					if (moveIfNotCollision(tx, (int) y, bounds.y, bounds.height)) {
 						x += xMove;
-						Bot.setCount(0);
 					} else {
 						Bot.setK(2);
 					}
@@ -203,14 +179,31 @@ public abstract class CreatureBot extends EntityBot { // using methods from Enti
 		}
 	}
 
+	/**
+	 * Check if the Tile x, y is a wall.
+	 * 
+	 * @param x
+	 * @param y
+	 * @return boolean is there a wall or not
+	 */
 	protected boolean collision(int x, int y) {
 		return handler.getWorld().getTile(x, y).isSolid();
 	}
 
+	/**
+	 * Variables which describes the CreatureBot.
+	 * 
+	 * @param handler
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * 
+	 *                Constructor to provide initial values for CreatureBot.
+	 */
 	public CreatureBot(Handler handler, float x, float y, int width, int height) { // has to has the same variables as
 		// Entity constructor
 		super(handler, x, y, width, height); // passes those variables to Entity constructor variables
-		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 	}
 }
