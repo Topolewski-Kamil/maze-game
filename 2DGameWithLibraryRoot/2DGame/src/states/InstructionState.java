@@ -9,10 +9,10 @@ import java.awt.*;
 public class InstructionState extends State {
 
     private int policemanX, policemanY, cloudX, cloudY, cloudSizeX, cloudSizeY, blankX, blankX2,
-    lightsX, lightsY;
+            lightsX, lightsY;
     private int cloudNumber, lightNumber;
-    private boolean speaking, moving, setted, lightsOn;
-    private long timer, timer2, timer3, timer4, timer5;
+    private boolean speaking, moving, setted, lightsOn, timeChange;
+    private long timer, timer2, timer3, timer4, timer5, timer6;
 
     public InstructionState(Handler handler) {
         super(handler);
@@ -20,6 +20,7 @@ public class InstructionState extends State {
         speaking = false;
         moving = true;
         setted = true;
+        timeChange = false;
 
         policemanX = 0;
         policemanY = 950;
@@ -41,6 +42,11 @@ public class InstructionState extends State {
 
     @Override
     public void update() {
+
+        if (handler.getKeyManager().escape) {
+            handler.getGame().reloadMenuState();
+            State.setState(handler.getGame().gameState);
+        }
 
         if (setted) {
             timer = System.currentTimeMillis();
@@ -103,14 +109,31 @@ public class InstructionState extends State {
         }
 
         if (System.currentTimeMillis() - timer5 > 1300 && System.currentTimeMillis() - timer5 < 2000 && cloudNumber == 5) {
-                lightsOn = true;
-                lightNumber += 1;
-                timer5 = System.currentTimeMillis();
-                if (lightNumber == 5)
-                    State.setState(handler.getGame().gameState);
+            lightsOn = true;
+            lightNumber += 1;
+            timer5 = System.currentTimeMillis();
+            if (lightNumber == 5)
+                State.setState(handler.getGame().gameState);
         }
 
+        if (cloudNumber == 4 && blankX > 550 && blankX < 747 ) {
 
+            if (System.currentTimeMillis() - timer6 > 100) {
+
+                if (!timeChange) {
+                    timeChange = true;
+                    timer6 = System.currentTimeMillis();
+                } else {
+                    timeChange = false;
+                    timer6 = System.currentTimeMillis();
+                }
+            }
+
+        }
+
+        if (blankX > 747) {
+            timeChange = false;
+        }
 
     }
 
@@ -119,7 +142,12 @@ public class InstructionState extends State {
 
         //background
         g.drawImage(Assets.black, 0, 0, null);
-        g.drawImage(Assets.instructions, 0, 0, 835, 795, null);
+
+        if (!timeChange)
+            g.drawImage(Assets.instructions, 0, 0, 835, 795, null);
+        else
+            g.drawImage(Assets.instructions2, 0, 0, 835, 795, null);
+
 
         //speaking animation
         if (getSpeaking() || cloudNumber > 6)
@@ -148,14 +176,14 @@ public class InstructionState extends State {
         //lights changing
         if (lightsOn) {
             if (lightNumber == 1) {
-                g.drawImage(Assets.light1, lightsX, lightsY,  null);
+                g.drawImage(Assets.light1, lightsX, lightsY, null);
             }
 
             if (lightNumber == 2)
-                g.drawImage(Assets.light2, lightsX, lightsY,  null);
+                g.drawImage(Assets.light2, lightsX, lightsY, null);
 
             if (lightNumber == 3)
-                g.drawImage(Assets.light3, lightsX, lightsY,  null);
+                g.drawImage(Assets.light3, lightsX, lightsY, null);
 
             if (lightNumber == 4)
                 g.drawImage(Assets.light4, lightsX, lightsY, null);
@@ -172,6 +200,8 @@ public class InstructionState extends State {
             g.fillRect(750, 360, 270, 120);
         }
 
+        g.setColor(new Color(255, 255, 255));
+        g.drawString("press 'esc' to skip", 720, 820);
 
     }
 

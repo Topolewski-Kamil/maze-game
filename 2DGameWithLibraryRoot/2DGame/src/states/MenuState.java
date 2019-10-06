@@ -21,6 +21,7 @@ public class MenuState extends State {
     public static boolean gameStarted = false; //check if previous game was started
     public static String playerName;
 	private final int IMG_X = 295;
+	private final int IMG_Y = 390;
 	private final int IMG_WIDTH = 240;
 	private final int IMG_HEIGHT = 78;
 
@@ -31,7 +32,7 @@ public class MenuState extends State {
 
 		// continue button
 		if (gameStarted) {
-			uiManager.addObject(new UIImageButton(IMG_X, 420, IMG_WIDTH, IMG_HEIGHT, Assets.btn_continue, new ClickListener() {
+			uiManager.addObject(new UIImageButton(IMG_X, IMG_Y, IMG_WIDTH, IMG_HEIGHT, Assets.btn_continue, new ClickListener() {
 				@Override
 				public void onClick() {
 					handler.getMouseManager().setUIManager(null);
@@ -42,7 +43,7 @@ public class MenuState extends State {
 		// end of continue button
 
 		if (!gameStarted) {
-			uiManager.addObject(new UIImageButton(IMG_X, 420, IMG_WIDTH, IMG_HEIGHT, Assets.btn_reset, new ClickListener() {
+			uiManager.addObject(new UIImageButton(IMG_X, IMG_Y, IMG_WIDTH, IMG_HEIGHT, Assets.btn_reset, new ClickListener() {
 				@Override
 				public void onClick() {
 					int result = JOptionPane.showConfirmDialog(null, "Are your sure ? " +
@@ -69,7 +70,7 @@ public class MenuState extends State {
 		}
 
 		// start button
-		uiManager.addObject(new UIImageButton(IMG_X, 320, IMG_WIDTH, IMG_HEIGHT, Assets.btn_start, new ClickListener() {
+		uiManager.addObject(new UIImageButton(IMG_X, IMG_Y - 100, IMG_WIDTH, IMG_HEIGHT, Assets.btn_start, new ClickListener() {
 			@Override
 			  public void onClick() {
 				Creature.setCaught(false);
@@ -101,7 +102,7 @@ public class MenuState extends State {
 		// end of start button
 
 		// quit button
-		uiManager.addObject(new UIImageButton(IMG_X, 720, IMG_WIDTH, IMG_HEIGHT, Assets.btn_quit, new ClickListener() {
+		uiManager.addObject(new UIImageButton(IMG_X, IMG_Y + 300, IMG_WIDTH, IMG_HEIGHT, Assets.btn_quit, new ClickListener() {
 			@Override
 			public void onClick() {
 				System.exit(0);
@@ -110,7 +111,7 @@ public class MenuState extends State {
 		// end of quit button
 
 		// How to play button
-		uiManager.addObject(new UIImageButton(IMG_X, 620, IMG_WIDTH, IMG_HEIGHT, Assets.btn_help, new ClickListener() {
+		uiManager.addObject(new UIImageButton(IMG_X, IMG_Y + 200, IMG_WIDTH, IMG_HEIGHT, Assets.btn_help, new ClickListener() {
 			@Override
 			public void onClick() {
 				handler.getMouseManager().setUIManager(null);
@@ -120,7 +121,7 @@ public class MenuState extends State {
 		// end of How to play button
 
 		// High Scores button
-		uiManager.addObject(new UIImageButton(IMG_X, 520, IMG_WIDTH, IMG_HEIGHT, Assets.btn_highscore, new ClickListener() {
+		uiManager.addObject(new UIImageButton(IMG_X, IMG_Y + 100, IMG_WIDTH, IMG_HEIGHT, Assets.btn_highscore, new ClickListener() {
 			@Override
 			public void onClick() {
 				handler.getMouseManager().setUIManager(null);
@@ -139,7 +140,7 @@ public class MenuState extends State {
 	public void render(Graphics g) {
 		
 		g.drawImage(Assets.background, 0, 0, null);
-		g.drawImage(Assets.logoBig, 25, 35, null);
+		g.drawImage(Assets.logoBig, 50, 50, 750, 180, null);
 		uiManager.render(g);
 		
 

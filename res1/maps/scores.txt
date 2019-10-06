@@ -3,10 +3,6 @@ Name2 20
 Name3 30
 Name4 40
 Name5 50
-das 72
-gfd 47
-Kamil 13
-dfgh 56
-f 190
-f 138
-f 136
+f 106
+f 111
+Kamil 91

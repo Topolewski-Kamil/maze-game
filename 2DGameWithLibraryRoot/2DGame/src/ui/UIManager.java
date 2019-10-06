@@ -14,7 +14,7 @@ public class UIManager {
 	private int playerY = 50;
 	private int policeX = 0;
 	private int policeY = 0;
-	private int sizeOfMaze = 770;
+	private int sizeOfMaze = 710;
 	private int policeK;
 	private int thiefK;
 
