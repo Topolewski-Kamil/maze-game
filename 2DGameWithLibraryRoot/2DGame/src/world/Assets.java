@@ -15,7 +15,8 @@ public class Assets {
 
 	public static BufferedImage cloud, cloudExit, thiefFront, policeFront, policeRight, thiefRight, thiefBack,
 			thiefLeft, policeLeft, policeBack, thiefCaught, coin, wall, grass, speedUp, hole, eagleEye, policeStation,
-			logoBig, logoSmall, background, instructions, policeman2, policeman22, black, cloud1, cloud2, cloud3, cloud4, cloud5;
+			logoBig, logoSmall, background, instructions, policeman2, policeman22, black, cloud1, cloud2, cloud3, cloud4, cloud5,
+			light1, light2, light3, light4, light5;
 
 	public static BufferedImage[] btn_start, btn_quit, btn_continue, btn_help, btn_reset, btn_highscore;
 
@@ -103,6 +104,14 @@ public class Assets {
 		cloud3 = ImageLoader.loadImage("/textures1/cloudthird.png");
 		cloud4 = ImageLoader.loadImage("/textures1/cloudfourth.png");
 		cloud5 = ImageLoader.loadImage("/textures1/cloudfifth.png");
+
+		light1 = ImageLoader.loadImage("/textures1/lights1.png");
+		light2 = ImageLoader.loadImage("/textures1/lights2.png");
+		light3 = ImageLoader.loadImage("/textures1/lights3.png");
+		light4 = ImageLoader.loadImage("/textures1/lights0.png");
+
+
+
 
 
 	}
